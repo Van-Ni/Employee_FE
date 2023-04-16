@@ -7,13 +7,19 @@ import { ClipboardModule } from 'ngx-clipboard';
 
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
-import { IconsComponent } from '../../pages/icons/icons.component';
-import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
-import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { ToastrModule } from 'ngx-toastr';
-
+import { EmployeesComponent } from 'src/app/pages/employees/employees.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatCardModule} from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ModalEmployeeComponent } from 'src/app/pages/employees/components/modal-employee/modal-employee.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -21,14 +27,23 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    ClipboardModule
+    ClipboardModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatCardModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    ReactiveFormsModule
   ],
   declarations: [
     DashboardComponent,
     UserProfileComponent,
-    TablesComponent,
-    IconsComponent,
-    MapsComponent
+    EmployeesComponent,
+    ModalEmployeeComponent
   ]
 })
 
