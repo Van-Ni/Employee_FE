@@ -44,7 +44,7 @@ import { ModalEmployeeComponent } from 'src/app/pages/employees/components/modal
     UserProfileComponent,
     EmployeesComponent,
     ModalEmployeeComponent
-  ]
+  ],
 })
 
 export class AdminLayoutModule {}
