@@ -1,4 +1,12 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { REMOTE_API } from 'src/app/model/common';
+import { Router } from '@angular/router';
+export interface User {
+  id: number;
+  username: string;
+  role_id: number;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -6,22 +14,41 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   private isAuth: boolean = false;
 
-  constructor() { }
+  constructor(private http: HttpClient,private router: Router) { }
 
   // Phương thức để kiểm tra xem người dùng đã đăng nhập chưa
   public isAuthenticated(): boolean {
-    return true;
+    return this.isAuth;
   }
 
-  // Phương thức để đăng nhập người dùng
-  public login(): void {
-    // Thực hiện logic để đăng nhập
-    this.isAuth = true;
+  public login(username: string, password: string): void {
+    const loginUser = { username: username, password: password };
+    this.http.post(`${REMOTE_API}/User/Login`, loginUser).subscribe(
+      (response:User) => {
+        const user : User = response;
+        this.isAuth = true;
+        localStorage.setItem('user', JSON.stringify(user));
+        this.router.navigate(['/dashboard']);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
-  // Phương thức để đăng xuất người dùng
   public logout(): void {
-    // Thực hiện logic để đăng xuất
-    this.isAuth = false;
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    if (user.id) {
+      this.http.delete(`${REMOTE_API}/User/Logout/${user.id}`).subscribe(
+        response => {
+          this.isAuth = false;
+          localStorage.removeItem('user');
+        this.router.navigate(['/login']);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
   }
 }
