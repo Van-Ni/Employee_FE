@@ -1,83 +1,127 @@
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Nhân viên</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body">
         <form [formGroup]="empForm">
           <div class="row">
-          <div class="col-6">
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Họ tên</mat-label>
-            <input matInput formControlName="fullname" />
-          </mat-form-field>
-          <mat-form-field  lass="example-full-width" appearance="fill">
-            <mat-label>Email</mat-label>
-            <input matInput type="email" value="" formControlName="email"/>
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Số điện thoại</mat-label>
-            <input matInput type="number" value="" formControlName="phone"/>
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Địa chỉ</mat-label>
-            <input matInput  value="" formControlName="address"/>
-          </mat-form-field>
-          <mat-radio-group aria-label="Select an option" formControlName="gender">
-            <mat-radio-button value="0" style="margin-right: 10px;">Nam</mat-radio-button>
-            <mat-radio-button value="1">Nữ</mat-radio-button>
-          </mat-radio-group>
+            <div class="col-6">
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Họ tên</mat-label>
+                <input matInput formControlName="fullname" />
+              </mat-form-field>
+              <mat-form-field lass="example-full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" value="" formControlName="email" />
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Số điện thoại</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  value=""
+                  formControlName="phone"
+                />
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Địa chỉ</mat-label>
+                <input matInput value="" formControlName="address" />
+              </mat-form-field>
+              <mat-radio-group
+                aria-label="Select an option"
+                formControlName="gender"
+              >
+                <mat-radio-button value="0" style="margin-right: 10px"
+                  >Nam</mat-radio-button
+                >
+                <mat-radio-button value="1">Nữ</mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div class="col-6">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Ngày sinh</label
+                >
+                <input
+                  type="date"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  formControlName="birthday"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Ngày vào làm</label
+                >
+                <input
+                  type="date"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  formControlName="joindate"
+                />
+              </div>
+              <mat-form-field appearance="fill">
+                <mat-label>Phòng ban</mat-label>
+                <select matNativeControl formControlName="department_id">
+                  <option
+                    *ngFor="let department of departments"
+                    [value]="department.Id"
+                  >
+                    {{ department.Name }}
+                  </option>
+                </select>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Chức vụ</mat-label>
+                <select matNativeControl formControlName="position_id">
+                  <option *ngFor="let position of positions" [value]="position.Id">{{ position.Name }}</option>
+                </select>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Loại hợp đồng</mat-label>
+                <select matNativeControl formControlName="contract_Id">
+                  <option *ngFor="let contract of contracts" [value]="contract.Id">{{ contract.Type }}</option>
+                </select>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Trạng thái</mat-label>
+                <select matNativeControl required formControlName="status">
+                  <option value="0" selected>Đang làm việc</option>
+                  <option value="1">Nghỉ việc</option>
+                </select>
+              </mat-form-field>
+            </div>
           </div>
-          <div class="col-6">
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Ngày sinh</label>
-            <input type="date" class="form-control" id="exampleFormControlInput1" formControlName="birthday"
-            >
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Ngày vào làm</label>
-            <input type="date" class="form-control" id="exampleFormControlInput1" formControlName="joindate">
-          </div>
-          <mat-form-field appearance="fill">
-            <mat-label>Phòng ban</mat-label>
-            <select matNativeControl  formControlName="department_id">
-              <option value="0" selected>HR</option>
-              <option value="1">IT</option>
-            </select>
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Chức vụ</mat-label>
-            <select matNativeControl  formControlName="position_id">
-              <option value="0" selected>GD</option>
-              <option value="1">IT</option>
-            </select>
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Loại hợp đồng</mat-label>
-            <select matNativeControl  formControlName="contract_Id">
-              <option value="0" selected>GD</option>
-              <option value="1">IT</option>
-            </select>
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Trạng thái</mat-label>
-            <select matNativeControl required formControlName="status">
-              <option value="0" selected>Đang làm việc</option>
-              <option value="1">Nghỉ việc</option>
-            </select>
-          </mat-form-field>
-          </div>
-        </div>
-          
-          
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-        <button type="button" class="btn btn-primary" [disabled]="!empForm.valid" (click)="onSave()">Lưu</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Đóng
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          [disabled]="!empForm.valid"
+          (click)="onSave()"
+        >
+          Lưu
+        </button>
       </div>
     </div>
   </div>
