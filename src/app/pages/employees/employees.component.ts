@@ -1,6 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { EmployeeService } from "../../services/employee/employee.service";
 import { Employee } from "../../model/employee";
+
+
 declare var $: any; // Import thư viện jQuery
 @Component({
   selector: "app-employees",
@@ -9,14 +11,15 @@ declare var $: any; // Import thư viện jQuery
 })
 export class EmployeesComponent implements OnInit {
   employees: Employee[];
+ 
   constructor(
     private employeeService: EmployeeService,
+    
     private cd: ChangeDetectorRef
   ) {}
 
   public idModal: number = 0;
   ngOnInit() {
-    // Khởi tạo DataTable
     this.getEmployees();
   }
   setDataTable(): void {

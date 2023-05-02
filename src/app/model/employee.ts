@@ -6,12 +6,12 @@ export class Employee {
   Phone: string;
   Address: string;
   Birthday: Date;
-  Joindate: Date;
+  JoinDate: Date;
   Avatar?: string;
   Status: number;
-  Department_id: number;
-  Position_id: number;
-  Contract_Id: number;
+  DepartmentId: number;
+  PositionId: number;
+  ContractId: number;
   UserId?: number;
   UserName?: string;
 
@@ -23,12 +23,12 @@ export class Employee {
     this.Phone = data.Phone;
     this.Address = data.Address;
     this.Birthday = new Date(data.Birthday);
-    this.Joindate = new Date(data.Joindate);
+    this.JoinDate = new Date(data.JoinDate);
     this.Avatar = data.Avatar;
     this.Status = data.Status;
-    this.Department_id = data.Department_id;
-    this.Position_id = data.Position_id;
-    this.Contract_Id = data.Contract_Id;
+    this.DepartmentId = data.DepartmentId;
+    this.PositionId = data.PositionId;
+    this.ContractId = data.ContractId;
     this.UserId = data.UserId;
     this.UserName = data.UserName;
   }
