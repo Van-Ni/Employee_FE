@@ -12,7 +12,7 @@ export interface User {
   providedIn: 'root'
 })
 export class AuthService {
-  private isAuth: boolean = true;
+  private isAuth: boolean = false;
 
   constructor(private http: HttpClient,private router: Router) { }
 

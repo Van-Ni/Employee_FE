@@ -18,7 +18,11 @@
               <th>STT</th>
               <th>Họ tên</th>
               <th>Email</th>
-              <th>Điện thoại</th>
+              <th>SĐT</th>
+              <th>Phòng ban</th>
+              <th>Chức vụ</th>
+              <th>Hợp đồng</th>
+              <th>Trạng thái</th>
               <th></th>
             </tr>
           </thead>
@@ -28,6 +32,10 @@
             <td>{{employee.Fullname}}</td>
             <td>{{employee.Email}}</td>
             <td>{{employee.Phone}}</td>
+            <td>{{employee.DepartmentName}}</td>
+            <td>{{employee.PositionName}}</td>
+            <td>{{employee.ContractName}}</td>
+            <td>{{employee.Status ? "Đang làm việc" : "Nghỉ việc"}}</td>
             <td>
               <button style="margin-right: 10px;" mat-flat-button color="primary"
               (click)="createOrUpdateModelOpen(employee.Id)"
