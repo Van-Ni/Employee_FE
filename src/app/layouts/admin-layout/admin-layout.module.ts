@@ -21,6 +21,10 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ModalEmployeeComponent } from 'src/app/pages/employees/components/modal-employee/modal-employee.component';
 import { TimeKeepingComponent } from 'src/app/pages/time-keeping/time-keeping.component';
+import { DepartmentsComponent } from 'src/app/pages/departments/departments.component';
+import { PositionsComponent } from 'src/app/pages/positions/positions.component';
+import { ContractsComponent } from 'src/app/pages/contracts/contracts.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -45,7 +49,10 @@ import { TimeKeepingComponent } from 'src/app/pages/time-keeping/time-keeping.co
     UserProfileComponent,
     EmployeesComponent,
     ModalEmployeeComponent,
-    TimeKeepingComponent
+    TimeKeepingComponent,
+    DepartmentsComponent,
+    PositionsComponent,
+    ContractsComponent,
   ],
 })
 
