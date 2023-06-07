@@ -10,13 +10,16 @@ import { REMOTE_API } from '../../model/common';
   providedIn: 'root'
 })
 export class EmployeeService {
-  private employeesUrl =`${REMOTE_API}/Employee`; 
+  getDepartment(currentValue: any) {
+    throw new Error("Method not implemented.");
+  }
+  private employeesUrl =`${REMOTE_API}/Employee`;
 
   constructor(
     private http: HttpClient
   ) { }
 
-  
+
   getEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(`${this.employeesUrl}/GetEmployees`);
   }
@@ -30,4 +33,8 @@ export class EmployeeService {
     const url = `${this.employeesUrl}/UpdateEmployee/${id}`;
     return this.http.put<Employee>(url, employee);
   }
+  // deleteEmployee(id: number) {
+  //   const url = `${this.employeesUrl}/DeleteEmployee/${id}`;
+  //   return this.http.delete<Employee>(url + id);
+  // }
 }

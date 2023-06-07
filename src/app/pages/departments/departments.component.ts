@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { EmployeeService } from "../../services/employee/employee.service";
-import { Employee } from "../../model/employee";
+import { DepartmentService } from 'src/app/services/department/department.service';
+import { Department } from 'src/app/model/department';
 
 declare var $: any; // Import thư viện jQuery
 @Component({
@@ -10,15 +10,19 @@ declare var $: any; // Import thư viện jQuery
 })
 
 export class DepartmentsComponent implements OnInit {
-
+  departments: Department[];
 
 
   constructor(
+    private departmentService: DepartmentService,
 
     private cd: ChangeDetectorRef
   ) {}
 
+  public idModal: number = 0;
   ngOnInit() {
+    this.getDepartments();
+
   }
   setDataTable(): void {
     // $("#myTable").DataTable().destroy();
@@ -39,5 +43,33 @@ export class DepartmentsComponent implements OnInit {
       $("#myTable").DataTable().destroy();
     });
   }
+  getDepartments(): void {
+    this.resetDatable();
+    this.departmentService.getDepartments().subscribe((departments) => {
+      this.departments = departments;
+      this.setDataTable();
+    });
+  }
+  createOrUpdateModelOpen(id: number) {
+    this.idModal = id;
+  }
 
+  onSaveDep(dep: Department) {
+    if (dep.Id) {
+      this.departmentService.updateDepartment(dep.Id, dep).subscribe(
+        (department) => this.getDepartments(),
+        (error) => {
+          console.error(error);
+        }
+      );
+    } else {
+      this.departmentService
+        .createDepartment({ ...dep, Id: +dep.Name})
+        .subscribe(
+          (department) => this.getDepartments(),
+          (error) => console.error(error)
+        );
+    }
+    $("#exampleModal").modal("hide");
+  }
 }

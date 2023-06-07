@@ -1,0 +1,51 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Chức vụ</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="posForm">
+          <div class="row">
+            <div class="col-6">
+              <mat-form-field class="example-full-width" appearance="fill" >
+                <mat-label>Chức vụ</mat-label>
+                <input matInput formControlName="name" />
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Mô tả</mat-label>
+                <input matInput value="" formControlName="description" />
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Đóng
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          [disabled]="!posForm.valid"
+          (click)="onSave()"
+        >
+          Lưu
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

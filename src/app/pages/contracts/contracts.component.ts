@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { EmployeeService } from "../../services/employee/employee.service";
-import { Employee } from "../../model/employee";
+import { ContractService } from 'src/app/services/contract/contract.service';
+import { Contract } from 'src/app/model/contract';
 
 declare var $: any; // Import thư viện jQuery
 @Component({
@@ -9,14 +9,18 @@ declare var $: any; // Import thư viện jQuery
   styleUrls: ['./contracts.component.css']
 })
 export class ContractsComponent implements OnInit {
+  contracts: Contract[];
 
   constructor(
-
+    private contractService: ContractService,
     private cd: ChangeDetectorRef
   ) {}
 
+  public idModal: number = 0;
   ngOnInit() {
+    this.getContracts();
   }
+
   setDataTable(): void {
     // $("#myTable").DataTable().destroy();
     $(document).ready(function () {
@@ -37,4 +41,31 @@ export class ContractsComponent implements OnInit {
     });
   }
 
+  getContracts(): void {
+    this.resetDatable();
+    this.contractService.getContracts().subscribe((contracts) => {
+      this.contracts = contracts;
+      this.setDataTable();
+    });
+  }
+  createOrUpdateModelOpen(id: number) {
+    this.idModal = id;
+  }
+  onSaveCon(con: Contract) {
+    if (con.Id) {
+      this.contractService.updateContract(con.Id, con).subscribe(
+        (contract) => this.getContracts(),
+        (error) => {
+          console.error(error);
+        }
+      );
+    } else {
+      this.contractService
+        .createContract({ ...con, Id: +con.Type})
+        .subscribe(
+          (contract) => this.getContracts(),
+          (error) => console.error(error)
+        );
+    }
+  }
 }

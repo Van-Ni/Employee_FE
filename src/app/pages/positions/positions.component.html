@@ -4,7 +4,7 @@
     <div class="header-body">
       <!-- ... -->
       <button mat-flat-button color="primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-
+      (click)="createOrUpdateModelOpen(0)"
       >Thêm mới <i class="fa-solid fa-plus"></i></button>
     </div>
   </div>
@@ -16,19 +16,20 @@
           <thead>
             <tr>
               <th>STT</th>
-              <th>Họ tên</th>
+              <th>Chức vụ</th>
               <th>Mô tả</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>1</td>
-            <td>abcxyzz</td>
-            <td>abc</td>
+          <tr *ngFor="let position of positions ; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{position.name}}</td>
+            <td>{{position.description}}</td>
             <td style="width: 20%;">
               <button style="margin-right: 10px;" mat-flat-button color="primary"
-
+              (click)="createOrUpdateModelOpen(position.Id)"
+              data-bs-toggle="modal" data-bs-target="#exampleModal"
               ><i class="fa-solid fa-pen"></i></button>
               <button mat-stroked-button color="warn"><i class="fa-solid fa-trash"></i></button>
             </td>
@@ -38,3 +39,6 @@
         </table>
   </mat-card>
 </div>
+
+<!-- Modal -->
+<app-modal-position [id]="idModal" (onSavePos)="onSavePos($event)"></app-modal-position>

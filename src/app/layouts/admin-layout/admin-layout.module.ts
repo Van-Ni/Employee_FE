@@ -24,6 +24,9 @@ import { TimeKeepingComponent } from 'src/app/pages/time-keeping/time-keeping.co
 import { DepartmentsComponent } from 'src/app/pages/departments/departments.component';
 import { PositionsComponent } from 'src/app/pages/positions/positions.component';
 import { ContractsComponent } from 'src/app/pages/contracts/contracts.component';
+import { ModalDepartmentComponent } from 'src/app/pages/departments/components/modal-department/modal-department.component';
+import { ModalPositionComponent } from 'src/app/pages/positions/components/modal-position/modal-position.component';
+import { ModalContractComponent } from 'src/app/pages/contracts/components/modal-contract/modal-contract.component';
 
 @NgModule({
   imports: [
@@ -53,6 +56,9 @@ import { ContractsComponent } from 'src/app/pages/contracts/contracts.component'
     DepartmentsComponent,
     PositionsComponent,
     ContractsComponent,
+    ModalDepartmentComponent,
+    ModalPositionComponent,
+    ModalContractComponent,
   ],
 })
 

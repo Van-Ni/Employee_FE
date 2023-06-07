@@ -1,0 +1,73 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Hợp đồng</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="conForm">
+          <div class="row">
+            <div class="col-6">
+              <mat-form-field class="example-full-width" appearance="fill" >
+                <mat-label>Loại hợp đồng</mat-label>
+                <input matInput formControlName="type" />
+              </mat-form-field>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Ngày bắt đầu</label
+                >
+                <input
+                  type="date"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  formControlName="startday"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Ngày kết thúc</label
+                >
+                <input
+                  type="date"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  formControlName="endday"
+                />
+              </div>
+              <mat-form-field appearance="fill">
+                <mat-label>Ghi chú</mat-label>
+                <input matInput value="" formControlName="note" />
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Đóng
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          [disabled]="!conForm.valid"
+          (click)="onSave()"
+        >
+          Lưu
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

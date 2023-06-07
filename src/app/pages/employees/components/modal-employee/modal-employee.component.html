@@ -82,7 +82,7 @@
                     *ngFor="let department of departments"
                     [value]="department.Id"
                   >
-                    {{ department.Name }}
+                    {{ department.name }}
                   </option>
                 </select>
               </mat-form-field>
@@ -90,13 +90,13 @@
               <mat-form-field appearance="fill">
                 <mat-label>Chức vụ</mat-label>
                 <select matNativeControl formControlName="position_id">
-                  <option *ngFor="let position of positions" [value]="position.Id">{{ position.Name }}</option>
+                  <option *ngFor="let position of positions" [value]="position.Id">{{ position.name }}</option>
                 </select>
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Loại hợp đồng</mat-label>
                 <select matNativeControl formControlName="contract_Id">
-                  <option *ngFor="let contract of contracts" [value]="contract.Id">{{ contract.Type }}</option>
+                  <option *ngFor="let contract of contracts" [value]="contract.Id">{{ contract.type }}</option>
                 </select>
               </mat-form-field>
               <mat-form-field appearance="fill">
@@ -122,6 +122,7 @@
         >
           Lưu
         </button>
+
       </div>
     </div>
   </div>
