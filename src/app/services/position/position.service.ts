@@ -12,6 +12,6 @@ export class PositionService {
 
   constructor(private http: HttpClient) {}
   getPositions(): Observable<Position[]> {
-    return this.http.get<Position[]>(`${this.positionsUrl}/GetPositions`);
+    return this.http.get<Position[]>(`${this.positionsUrl}/GetAllPositions`);
   }
 }

@@ -10,13 +10,13 @@ import { REMOTE_API } from '../../model/common';
   providedIn: 'root'
 })
 export class EmployeeService {
-  private employeesUrl =`${REMOTE_API}/Employee`; 
+  private employeesUrl = `${REMOTE_API}/Employee`;
 
   constructor(
     private http: HttpClient
   ) { }
 
-  
+
   getEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(`${this.employeesUrl}/GetEmployees`);
   }
@@ -28,6 +28,7 @@ export class EmployeeService {
   }
   updateEmployee(id: number, employee: Employee): Observable<Employee> {
     const url = `${this.employeesUrl}/UpdateEmployee/${id}`;
+    delete employee.Id;
     return this.http.put<Employee>(url, employee);
   }
 }

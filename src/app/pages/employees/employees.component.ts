@@ -11,12 +11,16 @@ declare var $: any; // Import thư viện jQuery
 })
 export class EmployeesComponent implements OnInit {
   employees: Employee[];
- 
+  user = JSON.parse (localStorage.getItem("user"));
+  
   constructor(
     private employeeService: EmployeeService,
     
     private cd: ChangeDetectorRef
-  ) {}
+    
+  ) {
+    console.log(this.user);
+  }
 
   public idModal: number = 0;
   ngOnInit() {

@@ -12,6 +12,6 @@ export class ContractService {
 
   constructor(private http: HttpClient) {}
   getContracts(): Observable<Contract[]> {
-    return this.http.get<Contract[]>(`${this.contractsUrl}/GetContracts`);
+    return this.http.get<Contract[]>(`${this.contractsUrl}/GetAllContracts`);
   }
 }
