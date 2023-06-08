@@ -101,6 +101,7 @@ export class ModalPositionComponent implements OnInit, OnChanges {
   }
 
   setForm(pos: Department) {
+    console.log(pos);
     this.department = pos;
     this.posForm.get("name").setValue(pos.Name);
     this.posForm.get("description").setValue(pos.Description);

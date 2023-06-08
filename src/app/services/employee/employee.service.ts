@@ -13,7 +13,7 @@ export class EmployeeService {
   getDepartment(currentValue: any) {
     throw new Error("Method not implemented.");
   }
-  private employeesUrl =`${REMOTE_API}/Employee`;
+  private employeesUrl = `${REMOTE_API}/Employee`;
 
   constructor(
     private http: HttpClient
@@ -31,10 +31,7 @@ export class EmployeeService {
   }
   updateEmployee(id: number, employee: Employee): Observable<Employee> {
     const url = `${this.employeesUrl}/UpdateEmployee/${id}`;
+    delete employee.Id;
     return this.http.put<Employee>(url, employee);
   }
-  // deleteEmployee(id: number) {
-  //   const url = `${this.employeesUrl}/DeleteEmployee/${id}`;
-  //   return this.http.delete<Employee>(url + id);
-  // }
 }

@@ -25,6 +25,7 @@ export class PositionService {
   }
   updatePosition(id: number, position: Position): Observable<Position> {
     const url = `${this.positionsUrl}/UpdatePosition/${id}`;
+    delete position.Id;
     return this.http.put<Position>(url, position);
   }
 }

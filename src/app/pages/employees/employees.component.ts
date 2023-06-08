@@ -12,11 +12,15 @@ declare var $: any; // Import thư viện jQuery
 export class EmployeesComponent implements OnInit {
   employees: Employee[];
 
+  user = JSON.parse (localStorage.getItem("user"));
+
   constructor(
     private employeeService: EmployeeService,
 
     private cd: ChangeDetectorRef
-  ) {}
+  ) {
+    console.log(this.user);
+  }
 
   public idModal: number = 0;
   ngOnInit() {
@@ -51,9 +55,7 @@ export class EmployeesComponent implements OnInit {
   createOrUpdateModelOpen(id: number) {
     this.idModal = id;
   }
-  // deleteEmployee(id: number, employee: Employee) {
-  //   this.idModal = id;
-  // }
+
   onSaveEmp(emp: Employee) {
     if (emp.Id) {
       this.employeeService.updateEmployee(emp.Id, emp).subscribe(

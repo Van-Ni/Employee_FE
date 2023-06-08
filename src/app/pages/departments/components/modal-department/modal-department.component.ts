@@ -101,6 +101,7 @@ export class ModalDepartmentComponent implements OnInit, OnChanges {
   }
 
   setForm(dep: Department) {
+    console.log(dep);
     this.department = dep;
     this.depForm.get("name").setValue(dep.Name);
     this.depForm.get("description").setValue(dep.Description);

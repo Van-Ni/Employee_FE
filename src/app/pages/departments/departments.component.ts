@@ -12,17 +12,19 @@ declare var $: any; // Import thư viện jQuery
 export class DepartmentsComponent implements OnInit {
   departments: Department[];
 
+  user = JSON.parse (localStorage.getItem("user"));
 
   constructor(
     private departmentService: DepartmentService,
 
     private cd: ChangeDetectorRef
-  ) {}
+  ) {
+    console.log(this.user);
+  }
 
   public idModal: number = 0;
   ngOnInit() {
     this.getDepartments();
-
   }
   setDataTable(): void {
     // $("#myTable").DataTable().destroy();
@@ -64,7 +66,7 @@ export class DepartmentsComponent implements OnInit {
       );
     } else {
       this.departmentService
-        .createDepartment({ ...dep, Id: +dep.Name})
+        .createDepartment({ ...dep, Id: +dep.Id })
         .subscribe(
           (department) => this.getDepartments(),
           (error) => console.error(error)

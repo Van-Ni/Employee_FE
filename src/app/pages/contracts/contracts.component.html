@@ -34,7 +34,9 @@
               <button style="margin-right: 10px;" mat-flat-button color="primary"
               (click)="createOrUpdateModelOpen(contract.id)"
               ><i class="fa-solid fa-pen"></i></button>
-              <button mat-stroked-button color="warn"><i class="fa-solid fa-trash"></i></button>
+              <button *ngIf="user.id === contract.Id" mat-stroked-button color="warn">
+                <i class="fa-solid fa-trash"></i>
+              </button>
             </td>
           </tr>
 

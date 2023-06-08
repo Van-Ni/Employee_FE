@@ -10,10 +10,13 @@ declare var $: any;
 })
 export class PositionsComponent implements OnInit {
   positions: Position[];
+  user = JSON.parse (localStorage.getItem("user"));
   constructor(
     private positionService: PositionService,
     private cd: ChangeDetectorRef
-  ) { }
+  ) {
+    console.log(this.user);
+  }
 
   public idModal: number = 0;
   ngOnInit() {
@@ -48,6 +51,7 @@ export class PositionsComponent implements OnInit {
   createOrUpdateModelOpen(id: number) {
     this.idModal = id;
   }
+
   onSavePos(pos: Position) {
     if (pos.Id) {
       this.positionService.updatePosition(pos.Id, pos)

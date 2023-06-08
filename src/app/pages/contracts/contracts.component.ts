@@ -11,10 +11,14 @@ declare var $: any; // Import thư viện jQuery
 export class ContractsComponent implements OnInit {
   contracts: Contract[];
 
+  user = JSON.parse (localStorage.getItem("user"));
+
   constructor(
     private contractService: ContractService,
     private cd: ChangeDetectorRef
-  ) {}
+  ) {
+    console.log(this.user);
+  }
 
   public idModal: number = 0;
   ngOnInit() {
@@ -51,6 +55,7 @@ export class ContractsComponent implements OnInit {
   createOrUpdateModelOpen(id: number) {
     this.idModal = id;
   }
+
   onSaveCon(con: Contract) {
     if (con.Id) {
       this.contractService.updateContract(con.Id, con).subscribe(

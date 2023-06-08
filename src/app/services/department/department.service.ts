@@ -11,7 +11,7 @@ import { Department } from 'src/app/model/department';
 })
 export class DepartmentService {
 
-  private departmentsUrl =`${REMOTE_API}/Department`;
+  private departmentsUrl = `${REMOTE_API}/Department`;
 
   constructor(
     private http: HttpClient
@@ -29,10 +29,7 @@ export class DepartmentService {
   }
   updateDepartment(id: number, department: Department): Observable<Department> {
     const url = `${this.departmentsUrl}/UpdateDepartment/${id}`;
+    delete department.Id;
     return this.http.put<Department>(url, department);
   }
-  deleteDepartment(id:number){
-    const url = `${this.departmentsUrl}/DeleteDepartment/${id}`;
-    return this.http.delete(url+ id)
-}
 }

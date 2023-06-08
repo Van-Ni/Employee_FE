@@ -1,21 +1,11 @@
 <!-- Modal -->
-<div
-  class="modal fade"
-  id="exampleModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+<div>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Nhân viên</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form [formGroup]="empForm">
@@ -31,57 +21,31 @@
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Số điện thoại</mat-label>
-                <input
-                  matInput
-                  type="number"
-                  value=""
-                  formControlName="phone"
-                />
+                <input matInput type="number" value="" formControlName="phone" />
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Địa chỉ</mat-label>
                 <input matInput value="" formControlName="address" />
               </mat-form-field>
-              <mat-radio-group
-                aria-label="Select an option"
-                formControlName="gender"
-              >
-                <mat-radio-button value="0" style="margin-right: 10px"
-                  >Nam</mat-radio-button
-                >
+              <mat-radio-group aria-label="Select an option" formControlName="gender">
+                <mat-radio-button value="0" style="margin-right: 10px">Nam</mat-radio-button>
                 <mat-radio-button value="1">Nữ</mat-radio-button>
               </mat-radio-group>
             </div>
             <div class="col-6">
               <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label"
-                  >Ngày sinh</label
-                >
-                <input
-                  type="date"
-                  class="form-control"
-                  id="exampleFormControlInput1"
-                  formControlName="birthday"
-                />
+                <label for="exampleFormControlInput1" class="form-label">Ngày sinh</label>
+                <input type="date" class="form-control" id="exampleFormControlInput1" formControlName="birthday" />
               </div>
               <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label"
-                  >Ngày vào làm</label
-                >
-                <input
-                  type="date"
-                  class="form-control"
-                  id="exampleFormControlInput1"
-                  formControlName="joindate"
-                />
+                <label for="exampleFormControlInput1" class="form-label">Ngày vào làm</label>
+                <input type="date" class="form-control" id="exampleFormControlInput1" formControlName="joindate" />
               </div>
               <mat-form-field appearance="fill">
                 <mat-label>Phòng ban</mat-label>
-                <select matNativeControl formControlName="department_id">
-                  <option
-                    *ngFor="let department of departments"
-                    [value]="department.Id"
-                  >
+                <select matNativeControl required formControlName="department_id">
+                  <option *ngFor="let department of departments"
+                    [value]="department.id">
                     {{ department.name }}
                   </option>
                 </select>
@@ -89,14 +53,14 @@
 
               <mat-form-field appearance="fill">
                 <mat-label>Chức vụ</mat-label>
-                <select matNativeControl formControlName="position_id">
-                  <option *ngFor="let position of positions" [value]="position.Id">{{ position.name }}</option>
+                <select matNativeControl required formControlName="position_id">
+                  <option *ngFor="let position of positions" [value]="position.id">{{ position.name }}</option>
                 </select>
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Loại hợp đồng</mat-label>
-                <select matNativeControl formControlName="contract_Id">
-                  <option *ngFor="let contract of contracts" [value]="contract.Id">{{ contract.type }}</option>
+                <select matNativeControl required formControlName="contract_Id">
+                  <option *ngFor="let contract of contracts" [value]="contract.id">{{ contract.type }}</option>
                 </select>
               </mat-form-field>
               <mat-form-field appearance="fill">
@@ -114,15 +78,9 @@
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Đóng
         </button>
-        <button
-          type="button"
-          class="btn btn-primary"
-          [disabled]="!empForm.valid"
-          (click)="onSave()"
-        >
+        <button type="button" class="btn btn-primary" [disabled]="!empForm.valid" (click)="onSave()">
           Lưu
         </button>
-
       </div>
     </div>
   </div>

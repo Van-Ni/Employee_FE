@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,10 +10,12 @@ import { AuthService } from '../../services/auth/auth.service';
 export class LoginComponent implements OnInit, OnDestroy {
   username: string;
   password: string;
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,private router: Router) {
+  }
 
   ngOnInit() {
   }
+
   ngOnDestroy() {
   }
   onSubmit() {

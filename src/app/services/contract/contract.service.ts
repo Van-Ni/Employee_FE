@@ -23,6 +23,7 @@ export class ContractService {
   }
   updateContract(id: number, contract: Contract): Observable<Contract> {
     const url = `${this.contractsUrl}/UpdateContract/${id}`;
+    delete contract.Id;
     return this.http.put<Contract>(url, contract);
   }
 }

@@ -91,8 +91,8 @@ export class ModalContractComponent implements OnInit, OnChanges {
     if (this.conForm.valid) {
       const formData = this.conForm.getRawValue();
       console.log(formData);
-      formData.startday = parseInt(formData.startday);
-      formData.endday = parseInt(formData.endday);
+      formData.type = parseInt(formData.type);
+      formData.note = parseInt(formData.note);
       if (this.id == 0) {
         this.onSaveCon.emit(formData);
       } else {
@@ -105,6 +105,7 @@ export class ModalContractComponent implements OnInit, OnChanges {
   }
 
   setForm(con: Contract) {
+    console.log(con);
     this.contract = con;
     this.conForm.get("type").setValue(con.Type);
     this.conForm.get("startday").setValue(con.StartDate);
