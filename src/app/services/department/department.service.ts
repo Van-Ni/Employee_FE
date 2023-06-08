@@ -14,6 +14,6 @@ export class DepartmentService {
     private http: HttpClient
   ) { }
   getDepartments(): Observable<Department[]> {
-    return this.http.get<Department[]>(`${this.departmentsUrl}/GetDepartments`);
+    return this.http.get<Department[]>(`${this.departmentsUrl}/GetAllDepartments`);
   }
 }

@@ -93,7 +93,6 @@ export class ModalEmployeeComponent implements OnInit, OnChanges {
   onSave() {
     if (this.empForm.valid) {
       const formData = this.empForm.getRawValue();
-      console.log(formData);
       formData.gender = parseInt(formData.gender);
       formData.status = parseInt(formData.status);
       if (this.id == 0) {
@@ -108,6 +107,7 @@ export class ModalEmployeeComponent implements OnInit, OnChanges {
   }
 
   setForm(emp: Employee) {
+    console.log(emp);
     this.employee = emp;
     this.empForm.get("fullname").setValue(emp.Fullname);
     this.empForm.get("gender").setValue(emp.Gender ? "1" : "0");
@@ -120,7 +120,7 @@ export class ModalEmployeeComponent implements OnInit, OnChanges {
     this.empForm
       .get("joindate")
       .setValue(new Date(emp.JoinDate).toISOString().substring(0, 10));
-    this.empForm.get("status").setValue(emp.Status ? "1" : "0");
+    this.empForm.get("status").setValue(emp.Status ? "0" : "1");
     this.empForm.get("department_id").setValue(emp.DepartmentId);
     this.empForm.get("position_id").setValue(emp.PositionId);
     this.empForm.get("contract_Id").setValue(emp.ContractId);
