@@ -11,7 +11,10 @@ import { Contract } from "src/app/model/contract";
 export class ContractService {
   private contractsUrl = `${REMOTE_API}/Contract`;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient
+    ) {}
+
   getContracts(): Observable<Contract[]> {
     return this.http.get<Contract[]>(`${this.contractsUrl}/GetAllContracts`);
   }

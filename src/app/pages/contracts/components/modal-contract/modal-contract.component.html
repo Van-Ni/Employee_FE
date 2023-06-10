@@ -1,6 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
-<div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -15,11 +14,7 @@
                 <mat-label>Loại hợp đồng</mat-label>
                 <input matInput formControlName="type" />
               </mat-form-field>
-              <mat-form-field appearance="fill">
-                <mat-label>Ghi chú</mat-label>
-                <input matInput value="" formControlName="note" />
-              </mat-form-field>
-              <div class="col-6">
+
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Ngày bắt đầu</label>
                 <input type="date" class="form-control" id="exampleFormControlInput1" formControlName="startday" />
@@ -28,7 +23,11 @@
                 <label for="exampleFormControlInput1" class="form-label">Ngày kết thúc</label>
                 <input type="date" class="form-control" id="exampleFormControlInput1" formControlName="endday" />
               </div>
-            </div>
+
+              <mat-form-field class="example-full-width" appearance="fill" >
+                <mat-label>Ghi chú</mat-label>
+                <input matInput formControlName="note" />
+              </mat-form-field>
             </div>
           </div>
         </form>

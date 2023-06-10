@@ -31,11 +31,10 @@ export class ModalDepartmentComponent implements OnInit, OnChanges {
 
   @Input() id: number = 0;
   @Output() onSaveDep = new EventEmitter();
+  department: Department;
   depForm: FormGroup;
   contracts: Contract[];
-  departments: Department[];
   positions: Position[];
-  department: Department;
   employees: Employee[];
   constructor(
     private fb: FormBuilder,
@@ -49,11 +48,12 @@ export class ModalDepartmentComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.getContracts();
-    this.getDepartments();
+    this.getEmployees();
     this.getPositions();
     this.depForm = this.fb.group({
       name: ["", Validators.required],
       description: ["", Validators.required],
+
     });
   }
   getContracts(): void {
@@ -61,9 +61,10 @@ export class ModalDepartmentComponent implements OnInit, OnChanges {
       this.contracts = contracts;
     });
   }
-  getDepartments(): void {
-    this.departmentService.getDepartments().subscribe((departments) => {
-      this.departments = departments;
+
+  getEmployees(): void {
+    this.employeeService.getEmployees().subscribe((employees) => {
+      this.employees = employees;
     });
   }
 
@@ -86,9 +87,9 @@ export class ModalDepartmentComponent implements OnInit, OnChanges {
   onSave() {
     if (this.depForm.valid) {
       const formData = this.depForm.getRawValue();
-      console.log(formData);
-      formData.id = parseInt(formData.id);
+
       formData.name = parseInt(formData.name);
+      formData.description = parseInt(formData.description);
       if (this.id == 0) {
         this.onSaveDep.emit(formData);
       } else {
@@ -105,5 +106,6 @@ export class ModalDepartmentComponent implements OnInit, OnChanges {
     this.department = dep;
     this.depForm.get("name").setValue(dep.Name);
     this.depForm.get("description").setValue(dep.Description);
+
   }
 }

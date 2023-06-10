@@ -72,5 +72,6 @@ export class ContractsComponent implements OnInit {
           (error) => console.error(error)
         );
     }
+    $("#exampleModal").modal("hide");
   }
 }

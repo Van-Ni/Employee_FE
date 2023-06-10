@@ -11,7 +11,6 @@ declare var $: any; // Import thư viện jQuery
 
 export class DepartmentsComponent implements OnInit {
   departments: Department[];
-
   user = JSON.parse (localStorage.getItem("user"));
 
   constructor(
@@ -66,7 +65,7 @@ export class DepartmentsComponent implements OnInit {
       );
     } else {
       this.departmentService
-        .createDepartment({ ...dep, Id: +dep.Id })
+        .createDepartment({ ...dep, Id: +dep.Name })
         .subscribe(
           (department) => this.getDepartments(),
           (error) => console.error(error)

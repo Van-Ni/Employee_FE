@@ -2,22 +2,22 @@ import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { EmployeeService } from "../../services/employee/employee.service";
 import { Employee } from "../../model/employee";
 
+
 declare var $: any; // Import thư viện jQuery
 @Component({
   selector: "app-employees",
   templateUrl: "./employees.component.html",
   styleUrls: ["./employees.component.css"],
 })
-
 export class EmployeesComponent implements OnInit {
   employees: Employee[];
-
   user = JSON.parse (localStorage.getItem("user"));
 
   constructor(
     private employeeService: EmployeeService,
 
     private cd: ChangeDetectorRef
+
   ) {
     console.log(this.user);
   }
@@ -55,7 +55,6 @@ export class EmployeesComponent implements OnInit {
   createOrUpdateModelOpen(id: number) {
     this.idModal = id;
   }
-
   onSaveEmp(emp: Employee) {
     if (emp.Id) {
       this.employeeService.updateEmployee(emp.Id, emp).subscribe(

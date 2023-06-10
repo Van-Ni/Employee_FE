@@ -83,74 +83,78 @@
         </li>
       </ul>
       <!--  -->
-      <ul *ngIf="user.role_name.includes('Phòng nhân s?')" class="navbar-nav">
-          <li
-            class="nav-item accordion-button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseOne"
-            aria-expanded="true"
-            aria-controls="collapseOne"
-          >
-            <i class="fa-solid fa-user ni" style="margin-right: 20px"></i>
-            Quản lý nhân viên
-          </li>
-          <div
-            id="collapseOne"
-            class="accordion-collapse collapse"
-            aria-labelledby="headingOne"
-            data-bs-parent="#accordionExample"
-          >
-            <div class="accordion-body">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a
-                    routerLinkActive="active"
-                    routerLink="employee"
-                    class="nav-link"
-                  >
-                    <i class="ni fa-regular fa-user"></i>
-                    Danh sách Nhân viên
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link">
-                    <i class="ni fa-regular fa-user"></i>
-                    Danh sách chấm công
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link">
-                    <i class="ni fa-regular fa-user"></i>
-                    Danh sách hợp đồng
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link">
-                    <i class="ni fa-regular fa-user"></i>
-                    Danh sách nghĩ việc
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link">
-                    <i class="ni fa-regular fa-user"></i>
-                    Danh sách nghĩ lễ
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link">
-                    <i class="ni fa-regular fa-user"></i>
-                    Danh sách thưởng phạt
-                  </a>
-                </li>
-              </ul>
-            </div>
+      <ul class="navbar-nav">
+        <li
+          class="nav-item accordion-button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseOne"
+          aria-expanded="true"
+          aria-controls="collapseOne"
+        >
+          <i class="fa-solid fa-user ni" style="margin-right: 20px"></i>
+          Quản lý nhân viên
+        </li>
+        <div
+          id="collapseOne"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingOne"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a
+                  routerLinkActive="active"
+                  routerLink="employee"
+                  class="nav-link"
+                >
+                  <i class="ni fa-regular fa-user"></i>
+                  Danh sách Nhân viên
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <i class="ni fa-regular fa-user"></i>
+                  Danh sách chấm công
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  routerLinkActive="active"
+                  routerLink="contracts"
+                  class="nav-link"
+                >
+                  <i class="ni fa-regular fa-user"></i>
+                  Danh sách hợp đồng
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <i class="ni fa-regular fa-user"></i>
+                  Danh sách nghĩ việc
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <i class="ni fa-regular fa-user"></i>
+                  Danh sách nghĩ lễ
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <i class="ni fa-regular fa-user"></i>
+                  Danh sách thưởng phạt
+                </a>
+              </li>
+            </ul>
           </div>
-        </ul>
+        </div>
+      </ul>
       <!-- Divider -->
       <hr class="my-3" />
       <!--  -->
       <!--  -->
-      <ul *ngIf="user.role_name.includes('Phòng nhân s?')" class="navbar-nav">
+      <ul  class="navbar-nav">
         <li
           class="nav-item accordion-button"
           data-bs-toggle="collapse"
@@ -170,17 +174,21 @@
           <div class="accordion-body">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link"
-                   routerLinkActive="active"
-                   routerLink="departments">
+                <a
+                  routerLinkActive="active"
+                  routerLink="departments"
+                  class="nav-link"
+                >
                   <i class="ni fa-regular fa-user"></i>
                   Danh sách phòng ban
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link"
-                   routerLinkActive="active"
-                   routerLink="positions">
+                <a
+                  routerLinkActive="active"
+                  routerLink="positions"
+                  class="nav-link"
+                >
                   <i class="ni fa-regular fa-user"></i>
                   Danh sách chức vụ
                 </a>
@@ -191,7 +199,7 @@
       </ul>
       <hr class="my-3" />
       <!--  -->
-      <ul *ngIf="user.role_name.includes('Phòng tài chính')" class="navbar-nav">
+      <ul  class="navbar-nav">
         <li
           class="nav-item accordion-button"
           data-bs-toggle="collapse"

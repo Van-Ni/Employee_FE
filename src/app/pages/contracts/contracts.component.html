@@ -4,7 +4,7 @@
     <div class="header-body">
       <!-- ... -->
       <button mat-flat-button color="primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-
+      (click)="createOrUpdateModelOpen(0)"
       >Thêm mới <i class="fa-solid fa-plus"></i></button>
     </div>
   </div>
@@ -33,6 +33,7 @@
             <td style="width: 20%;">
               <button style="margin-right: 10px;" mat-flat-button color="primary"
               (click)="createOrUpdateModelOpen(contract.id)"
+              data-bs-toggle="modal" data-bs-target="#exampleModal"
               ><i class="fa-solid fa-pen"></i></button>
               <button *ngIf="user.id === contract.Id" mat-stroked-button color="warn">
                 <i class="fa-solid fa-trash"></i>

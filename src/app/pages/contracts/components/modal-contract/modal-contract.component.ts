@@ -32,13 +32,11 @@ export class ModalContractComponent implements OnInit, OnChanges {
 
   @Input() id: number = 0;
   @Output() onSaveCon = new EventEmitter();
+  contract: Contract;
   conForm: FormGroup;
-  contracts: Contract[];
   departments: Department[];
   positions: Position[];
-  department: Department;
   employees: Employee[];
-  contract: Contract;
   constructor(
     private fb: FormBuilder,
     private employeeService: EmployeeService,
@@ -50,7 +48,7 @@ export class ModalContractComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.getContracts();
+    this.getEmployees();
     this.getDepartments();
     this.getPositions();
     this.conForm = this.fb.group({
@@ -60,9 +58,9 @@ export class ModalContractComponent implements OnInit, OnChanges {
       note: ["", Validators.required],
     });
   }
-  getContracts(): void {
-    this.contractService.getContracts().subscribe((contracts) => {
-      this.contracts = contracts;
+  getEmployees(): void {
+    this.employeeService.getEmployees().subscribe((employees) => {
+      this.employees = employees;
     });
   }
   getDepartments(): void {
@@ -90,7 +88,7 @@ export class ModalContractComponent implements OnInit, OnChanges {
   onSave() {
     if (this.conForm.valid) {
       const formData = this.conForm.getRawValue();
-      console.log(formData);
+
       formData.type = parseInt(formData.type);
       formData.note = parseInt(formData.note);
       if (this.id == 0) {
@@ -112,5 +110,4 @@ export class ModalContractComponent implements OnInit, OnChanges {
     this.conForm.get("endday").setValue(con.EndDate);
     this.conForm.get("note").setValue(con.Note);
   }
-
 }

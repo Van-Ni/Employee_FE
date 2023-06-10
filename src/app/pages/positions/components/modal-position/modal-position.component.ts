@@ -31,12 +31,12 @@ export class ModalPositionComponent implements OnInit, OnChanges {
 
   @Input() id: number = 0;
   @Output() onSavePos = new EventEmitter();
+  position: Position;
   posForm: FormGroup;
   contracts: Contract[];
   departments: Department[];
-  positions: Position[];
-  department: Department;
   employees: Employee[];
+
   constructor(
     private fb: FormBuilder,
     private employeeService: EmployeeService,
@@ -49,8 +49,8 @@ export class ModalPositionComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.getContracts();
+    this.getEmployees();
     this.getDepartments();
-    this.getPositions();
     this.posForm = this.fb.group({
       name: ["", Validators.required],
       description: ["", Validators.required],
@@ -66,12 +66,12 @@ export class ModalPositionComponent implements OnInit, OnChanges {
       this.departments = departments;
     });
   }
-
-  getPositions(): void {
-    this.positionService.getPositions().subscribe((positions) => {
-      this.positions = positions;
+  getEmployees(): void {
+    this.employeeService.getEmployees().subscribe((employees) => {
+      this.employees = employees;
     });
   }
+
   ngOnChanges(changes: SimpleChanges) {
     if (changes.id.currentValue !== 0) {
       this.positionService
@@ -86,9 +86,8 @@ export class ModalPositionComponent implements OnInit, OnChanges {
   onSave() {
     if (this.posForm.valid) {
       const formData = this.posForm.getRawValue();
-      console.log(formData);
-      formData.id = parseInt(formData.id);
       formData.name = parseInt(formData.name);
+      formData.description = parseInt(formData.description);
       if (this.id == 0) {
         this.onSavePos.emit(formData);
       } else {
@@ -100,9 +99,9 @@ export class ModalPositionComponent implements OnInit, OnChanges {
     }
   }
 
-  setForm(pos: Department) {
+  setForm(pos: Position) {
     console.log(pos);
-    this.department = pos;
+    this.position = pos;
     this.posForm.get("name").setValue(pos.Name);
     this.posForm.get("description").setValue(pos.Description);
   }

@@ -93,7 +93,6 @@ export class ModalEmployeeComponent implements OnInit, OnChanges {
   onSave() {
     if (this.empForm.valid) {
       const formData = this.empForm.getRawValue();
-      console.log(formData);
       formData.gender = parseInt(formData.gender);
       formData.status = parseInt(formData.status);
       if (this.id == 0) {
