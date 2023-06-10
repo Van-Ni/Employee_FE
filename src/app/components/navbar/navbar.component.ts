@@ -16,6 +16,7 @@ import { AuthService } from "../../services/auth/auth.service";
 export class NavbarComponent implements OnInit {
   public listTitles: any[];
   public location: Location;
+  user:any = JSON.parse(localStorage.getItem('user') || '{}');
   constructor(
     location: Location,
     private element: ElementRef,
