@@ -1,30 +1,29 @@
-import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
-import { EmployeeService } from "../../services/employee/employee.service";
-import { Employee } from "../../model/employee";
-
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { DepartmentService } from 'src/app/services/department/department.service';
+import { Department } from 'src/app/model/department';
 
 declare var $: any; // Import thư viện jQuery
 @Component({
-  selector: "app-employees",
-  templateUrl: "./employees.component.html",
-  styleUrls: ["./employees.component.css"],
+  selector: 'app-departments',
+  templateUrl: './departments.component.html',
+  styleUrls: ['./departments.component.css']
 })
-export class EmployeesComponent implements OnInit {
-  employees: Employee[];
+
+export class DepartmentsComponent implements OnInit {
+  departments: Department[];
   user = JSON.parse (localStorage.getItem("user"));
-  
+
   constructor(
-    private employeeService: EmployeeService,
+    private departmentService: DepartmentService,
 
     private cd: ChangeDetectorRef
-    
   ) {
     console.log(this.user);
   }
 
   public idModal: number = 0;
   ngOnInit() {
-    this.getEmployees();
+    this.getDepartments();
   }
   setDataTable(): void {
     // $("#myTable").DataTable().destroy();
@@ -45,29 +44,30 @@ export class EmployeesComponent implements OnInit {
       $("#myTable").DataTable().destroy();
     });
   }
-  getEmployees(): void {
+  getDepartments(): void {
     this.resetDatable();
-    this.employeeService.getEmployees().subscribe((employees) => {
-      this.employees = employees;
+    this.departmentService.getDepartments().subscribe((departments) => {
+      this.departments = departments;
       this.setDataTable();
     });
   }
   createOrUpdateModelOpen(id: number) {
     this.idModal = id;
   }
-  onSaveEmp(emp: Employee) {
-    if (emp.Id) {
-      this.employeeService.updateEmployee(emp.Id, emp).subscribe(
-        (employee) => this.getEmployees(),
+
+  onSaveDep(dep: Department) {
+    if (dep.Id) {
+      this.departmentService.updateDepartment(dep.Id, dep).subscribe(
+        (department) => this.getDepartments(),
         (error) => {
           console.error(error);
         }
       );
     } else {
-      this.employeeService
-        .createEmployee({ ...emp, Gender: +emp.Gender })
+      this.departmentService
+        .createDepartment({ ...dep, Id: +dep.Name })
         .subscribe(
-          (employee) => this.getEmployees(),
+          (department) => this.getDepartments(),
           (error) => console.error(error)
         );
     }

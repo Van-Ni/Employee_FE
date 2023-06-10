@@ -1,31 +1,30 @@
-import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
-import { EmployeeService } from "../../services/employee/employee.service";
-import { Employee } from "../../model/employee";
-
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ContractService } from 'src/app/services/contract/contract.service';
+import { Contract } from 'src/app/model/contract';
 
 declare var $: any; // Import thư viện jQuery
 @Component({
-  selector: "app-employees",
-  templateUrl: "./employees.component.html",
-  styleUrls: ["./employees.component.css"],
+  selector: 'app-contracts',
+  templateUrl: './contracts.component.html',
+  styleUrls: ['./contracts.component.css']
 })
-export class EmployeesComponent implements OnInit {
-  employees: Employee[];
-  user = JSON.parse (localStorage.getItem("user"));
-  
-  constructor(
-    private employeeService: EmployeeService,
+export class ContractsComponent implements OnInit {
+  contracts: Contract[];
 
+  user = JSON.parse (localStorage.getItem("user"));
+
+  constructor(
+    private contractService: ContractService,
     private cd: ChangeDetectorRef
-    
   ) {
     console.log(this.user);
   }
 
   public idModal: number = 0;
   ngOnInit() {
-    this.getEmployees();
+    this.getContracts();
   }
+
   setDataTable(): void {
     // $("#myTable").DataTable().destroy();
     $(document).ready(function () {
@@ -45,29 +44,31 @@ export class EmployeesComponent implements OnInit {
       $("#myTable").DataTable().destroy();
     });
   }
-  getEmployees(): void {
+
+  getContracts(): void {
     this.resetDatable();
-    this.employeeService.getEmployees().subscribe((employees) => {
-      this.employees = employees;
+    this.contractService.getContracts().subscribe((contracts) => {
+      this.contracts = contracts;
       this.setDataTable();
     });
   }
   createOrUpdateModelOpen(id: number) {
     this.idModal = id;
   }
-  onSaveEmp(emp: Employee) {
-    if (emp.Id) {
-      this.employeeService.updateEmployee(emp.Id, emp).subscribe(
-        (employee) => this.getEmployees(),
+
+  onSaveCon(con: Contract) {
+    if (con.Id) {
+      this.contractService.updateContract(con.Id, con).subscribe(
+        (contract) => this.getContracts(),
         (error) => {
           console.error(error);
         }
       );
     } else {
-      this.employeeService
-        .createEmployee({ ...emp, Gender: +emp.Gender })
+      this.contractService
+        .createContract({ ...con, Id: +con.Type})
         .subscribe(
-          (employee) => this.getEmployees(),
+          (contract) => this.getContracts(),
           (error) => console.error(error)
         );
     }
