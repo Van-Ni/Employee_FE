@@ -13,7 +13,7 @@ const routes: Routes =[
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
-  }, 
+  },
   {
     path: '',
     component: AdminLayoutComponent,
@@ -49,6 +49,6 @@ const routes: Routes =[
   ],
   exports: [
   ],
- 
+
 })
 export class AppRoutingModule { }

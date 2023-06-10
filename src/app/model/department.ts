@@ -7,5 +7,6 @@ export class Department {
     this.Id = data.Id;
     this.Name = data.Name;
     this.Description = data.Description;
+
   }
 }
