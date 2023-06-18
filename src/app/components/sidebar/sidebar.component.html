@@ -19,7 +19,7 @@
       [routerLink]="['/dashboard']"
     >
       <img
-        src="https://cdn.dribbble.com/users/77016/screenshots/2936759/lp_dribbble_minion_icon_800x600_1_0.png"
+        src=""
         class="navbar-brand-img"
         alt="..."
       />
@@ -113,7 +113,11 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link">
+                <a
+                  routerLinkActive="active"
+                  routerLink="attendances"
+                  class="nav-link"
+                >
                   <i class="ni fa-regular fa-user"></i>
                   Danh sách chấm công
                 </a>
@@ -129,19 +133,27 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link">
+                <a routerLinkActive="active" routerLink="leaves" class="nav-link">
                   <i class="ni fa-regular fa-user"></i>
                   Danh sách nghĩ việc
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link">
+                <a
+                  routerLinkActive="active"
+                  routerLink="holidays"
+                  class="nav-link"
+                >
                   <i class="ni fa-regular fa-user"></i>
                   Danh sách nghĩ lễ
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link">
+                <a
+                  routerLinkActive="active"
+                  routerLink="rewarddisciplines"
+                  class="nav-link"
+                >
                   <i class="ni fa-regular fa-user"></i>
                   Danh sách thưởng phạt
                 </a>
@@ -219,7 +231,7 @@
           <div class="accordion-body">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link">
+                <a routerLinkActive="active" routerLink="salarys" class="nav-link">
                   <i class="ni fa-regular fa-user"></i>
                   Danh sách lương
                 </a>
@@ -231,7 +243,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link">
+                <a routerLinkActive="active" routerLink="employeesalarys" class="nav-link">
                   <i class="ni fa-regular fa-user"></i>
                   Danh sách tính lương
                 </a>

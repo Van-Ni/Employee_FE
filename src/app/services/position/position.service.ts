@@ -21,7 +21,7 @@ export class PositionService {
     return this.http.get<Position>(`${this.positionsUrl}/GetPosition/${id}`);
   }
   createPosition(position: Position): Observable<Position> {
-    return this.http.post<Position>(`${this.positionsUrl}/CreatePosition/`, position);
+    return this.http.post<Position>(`${this.positionsUrl}/CreatePosition`, position);
   }
   updatePosition(id: number, position: Position): Observable<Position> {
     const url = `${this.positionsUrl}/UpdatePosition/${id}`;
