@@ -88,8 +88,6 @@ export class ModalDepartmentComponent implements OnInit, OnChanges {
     if (this.depForm.valid) {
       const formData = this.depForm.getRawValue();
 
-      formData.name = parseInt(formData.name);
-      formData.description = parseInt(formData.description);
       if (this.id == 0) {
         this.onSaveDep.emit(formData);
       } else {

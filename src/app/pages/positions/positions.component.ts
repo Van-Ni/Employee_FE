@@ -63,7 +63,7 @@ export class PositionsComponent implements OnInit {
         );
     } else {
       this.positionService
-        .createPosition({ ...pos, Id: +pos.Name})
+        .createPosition(pos)
         .subscribe(
           (position) => this.getPositions(),
           (error) => console.error(error)

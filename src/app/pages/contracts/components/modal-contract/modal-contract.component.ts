@@ -55,7 +55,6 @@ export class ModalContractComponent implements OnInit, OnChanges {
       type: ["", Validators.required],
       startday: ["", Validators.required],
       endday: ["", Validators.required],
-      note: ["", Validators.required],
     });
   }
   getEmployees(): void {
@@ -89,8 +88,6 @@ export class ModalContractComponent implements OnInit, OnChanges {
     if (this.conForm.valid) {
       const formData = this.conForm.getRawValue();
 
-      formData.type = parseInt(formData.type);
-      formData.note = parseInt(formData.note);
       if (this.id == 0) {
         this.onSaveCon.emit(formData);
       } else {
@@ -108,6 +105,5 @@ export class ModalContractComponent implements OnInit, OnChanges {
     this.conForm.get("type").setValue(con.Type);
     this.conForm.get("startday").setValue(con.StartDate);
     this.conForm.get("endday").setValue(con.EndDate);
-    this.conForm.get("note").setValue(con.Note);
   }
 }

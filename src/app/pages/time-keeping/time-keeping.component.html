@@ -5,58 +5,54 @@
       <div style="width: 30%;">
         <ul class="list-group">
           <li class="list-group-item">
-            Mã nhân viên:
+            Mã nhân viên: {{employee.Id}}
           </li>
-          <li class="list-group-item" >
-            Họ tên:
+          <li class="list-group-item">
+            Họ tên: {{employee.Fullname}}
           </li>
-          <li class="list-group-item" >
-            Phòng ban:
+          <li class="list-group-item">
+            Phòng ban: {{employee.DepartmentName}}
           </li>
-          <li class="list-group-item" >
-            Chức vụ:
+          <li class="list-group-item">
+            Chức vụ: {{employee.PositionName}}
           </li>
         </ul>
       </div>
       <div style="text-align:center;padding:1em 0; width: 30%;">
-        <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=large&timezone=Asia%2FHo_Chi_Minh" width="100%" height="140" frameborder="0" seamless></iframe> 
+        <iframe
+          src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=large&timezone=Asia%2FHo_Chi_Minh"
+          width="100%" height="140" frameborder="0" seamless></iframe>
       </div>
     </div>
-    <button mat-flat-button color="primary" class="checkin-btn">Chấm công vào</button>
+    <button mat-flat-button color="primary" (click)="onCheckInOutClick()" class="checkin-btn"
+      [style.display]="showCheckinButton ? 'unset' : 'none'" *ngIf="checkinButtonText">{{ checkinButtonText }}</button>
   </div>
 </div>
 <div class="container-fluid mt--7">
   <mat-card>
-      <!-- ... -->
-        <table id="myTable" class="table table-striped table-bordered" style="width:100%">
-          <thead>
-            <tr>
-              <th>Ngày</th>
-              <th>Thời gian vào</th>
-              <th>Thời gian ra</th>
-              <th>Thời gian làm việc</th>
-              <th>Tăng ca</th>
-              <th>Trạng thái</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>16-05-2023</td>
-              <td></td>
-              <td></td>
-              <td>0</td>
-              <td>0</td>
-              <td>Nghỉ</td>
-            </tr>
-            <tr>
-              <td>17-05-2023</td>
-              <td>07:00:00</td>
-              <td>17:00:00</td>
-              <td>9</td>
-              <td>2</td>
-              <td>Đi sớm</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- ... -->
+    <table id="myTable" class="table table-striped table-bordered" style="width:100%">
+      <thead>
+        <tr>
+          <th>Ngày</th>
+          <th>Thời gian vào</th>
+          <th>Thời gian ra</th>
+          <th>Thời gian làm việc</th>
+          <th>Tăng ca</th>
+          <th>Trạng thái</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let attendance of attendances">
+          <td>{{ attendance.Date | date:'dd-MM-yyyy' }}</td>
+          <td>{{ formatTime(attendance.CheckInTime) }}</td>
+          <td>{{ formatTime(attendance.CheckOutTime) }}</td>
+          <td>{{ getWorkingTime(attendance.CheckInTime, attendance.CheckOutTime) }}</td>
+          <td>{{ attendance.Overtime }}</td>
+          <td>{{ getStatus(attendance.Status) }}</td>
+        </tr>
+      </tbody>
+    </table>
+
   </mat-card>
 </div>

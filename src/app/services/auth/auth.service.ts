@@ -16,7 +16,6 @@ export class AuthService {
 
   constructor(private http: HttpClient,private router: Router) { }
   user = JSON.parse(localStorage.getItem('user') || '{}');
-
   // Phương thức để kiểm tra xem người dùng đã đăng nhập chưa
   public isAuthenticated(): boolean {
     return this.isAuth || this.user?.id;

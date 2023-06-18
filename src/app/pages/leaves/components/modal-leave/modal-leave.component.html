@@ -1,0 +1,50 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Danh sách nghỉ phép</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="leaForm">
+          <div class="row">
+            <div class="col-6">
+              <mat-form-field appearance="fill">
+                <mat-label>Mã NV</mat-label>
+                <input matInput type="number" value="" formControlName="EmployeeId" />
+              </mat-form-field>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Ngày nghỉ</label>
+                <input type="date" class="form-control" id="exampleFormControlInput1" formControlName="LeaveDate" />
+              </div>
+              <mat-form-field class="example-full-width" appearance="fill" >
+                <mat-label>Lý do</mat-label>
+                <input matInput formControlName="Reason" />
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Cho phép</mat-label>
+                <select matNativeControl required formControlName="Approved">
+                  <option value="0" selected>Đồng ý</option>
+                  <option value="1">Không đồng ý</option>
+                </select>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Loại nghỉ phép</mat-label>
+                <input matInput value="" formControlName="LeaveType" />
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Đóng
+        </button>
+        <button type="button" class="btn btn-primary" [disabled]="!leaForm.valid" (click)="onSave()">
+          Lưu
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

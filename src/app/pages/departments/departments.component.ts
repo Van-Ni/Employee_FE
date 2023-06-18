@@ -65,7 +65,7 @@ export class DepartmentsComponent implements OnInit {
       );
     } else {
       this.departmentService
-        .createDepartment({ ...dep, Id: +dep.Name })
+        .createDepartment(dep)
         .subscribe(
           (department) => this.getDepartments(),
           (error) => console.error(error)

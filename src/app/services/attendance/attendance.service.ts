@@ -1,14 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Attendance } from 'src/app/model/attendance';
 import { REMOTE_API } from 'src/app/model/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AttendanceService {
-  private attendancesUrl = `${REMOTE_API}/Attendance`;
   constructor(
     private http: HttpClient
   ) { }
@@ -21,7 +19,7 @@ export class AttendanceService {
     const url = `${REMOTE_API}/Attendance/CheckOut?id=${id}`;
     return this.http.put(url, {});
   }
-  getAttendances(): Observable<Attendance[]> {
-    return this.http.get<Attendance[]>(`${this.attendancesUrl}/GetAttendances`);
+  getAttendances(): Observable<any[]> {
+    return this.http.get<any[]>(`${REMOTE_API}/Attendance/GetAttendances`);
   }
 }

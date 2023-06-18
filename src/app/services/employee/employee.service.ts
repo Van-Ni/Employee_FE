@@ -10,9 +10,6 @@ import { REMOTE_API } from '../../model/common';
   providedIn: 'root'
 })
 export class EmployeeService {
-  getDepartment(currentValue: any) {
-    throw new Error("Method not implemented.");
-  }
   private employeesUrl = `${REMOTE_API}/Employee`;
 
   constructor(

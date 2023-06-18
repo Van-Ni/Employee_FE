@@ -27,6 +27,16 @@ import { ContractsComponent } from 'src/app/pages/contracts/contracts.component'
 import { ModalDepartmentComponent } from 'src/app/pages/departments/components/modal-department/modal-department.component';
 import { ModalPositionComponent } from 'src/app/pages/positions/components/modal-position/modal-position.component';
 import { ModalContractComponent } from 'src/app/pages/contracts/components/modal-contract/modal-contract.component';
+import { AttendancesComponent } from 'src/app/pages/attendances/attendances.component';
+import { EmployeeSalarysComponent } from 'src/app/pages/employee-salarys/employee-salarys.component';
+import { HolidaysComponent } from 'src/app/pages/holidays/holidays.component';
+import { LeavesComponent } from 'src/app/pages/leaves/leaves.component';
+import { RewarddisciplinesComponent } from 'src/app/pages/rewarddisciplines/rewarddisciplines.component';
+import { SalarysComponent } from 'src/app/pages/salarys/salarys.component';
+import { ModalHolidayComponent } from 'src/app/pages/holidays/components/modal-holiday/modal-holiday.component';
+import { ModalLeaveComponent } from 'src/app/pages/leaves/components/modal-leave/modal-leave.component';
+import { ModalRewarddisciplineComponent } from 'src/app/pages/rewarddisciplines/components/modal-rewarddiscipline/modal-rewarddiscipline.component';
+import { ModalSalaryComponent } from 'src/app/pages/salarys/components/modal-salary/modal-salary.component';
 
 @NgModule({
   imports: [
@@ -59,6 +69,16 @@ import { ModalContractComponent } from 'src/app/pages/contracts/components/modal
     ModalDepartmentComponent,
     ModalPositionComponent,
     ModalContractComponent,
+    AttendancesComponent,
+    EmployeeSalarysComponent,
+    HolidaysComponent,
+    LeavesComponent,
+    RewarddisciplinesComponent,
+    SalarysComponent,
+    ModalHolidayComponent,
+    ModalLeaveComponent,
+    ModalRewarddisciplineComponent,
+    ModalSalaryComponent,
   ],
 })
 

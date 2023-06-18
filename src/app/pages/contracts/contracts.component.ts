@@ -66,7 +66,7 @@ export class ContractsComponent implements OnInit {
       );
     } else {
       this.contractService
-        .createContract({ ...con, Id: +con.Type})
+        .createContract(con)
         .subscribe(
           (contract) => this.getContracts(),
           (error) => console.error(error)

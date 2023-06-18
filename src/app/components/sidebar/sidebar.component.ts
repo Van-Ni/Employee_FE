@@ -35,9 +35,9 @@ export class SidebarComponent implements OnInit {
   public isCollapsed = true;
   user:any = JSON.parse(localStorage.getItem('user') || '{}');
 
-  constructor(private router: Router) {
+  constructor(private router: Router) { 
     console.log(this.user.role_name);
-
+    
   }
 
   ngOnInit() {
