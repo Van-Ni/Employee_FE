@@ -52,6 +52,11 @@ export class EmployeesComponent implements OnInit {
       this.setDataTable();
     });
   }
+  deleteEmp(id: number): void {
+    this.employeeService.deleteEmployee(id).subscribe((employees) => {
+      this.getEmployees();
+    });
+  }
   createOrUpdateModelOpen(id: number) {
     this.idModal = id;
   }
