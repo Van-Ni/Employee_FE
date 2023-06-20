@@ -22,11 +22,14 @@ export class ContractService {
     return this.http.get<Contract>(`${this.contractsUrl}/GetContract/${id}`);
   }
   createContract(contract: Contract): Observable<Contract> {
-    return this.http.post<Contract>(`${this.contractsUrl}/CreateContract/`, contract);
+    return this.http.post<Contract>(`${this.contractsUrl}/CreateContract`, contract);
   }
   updateContract(id: number, contract: Contract): Observable<Contract> {
     const url = `${this.contractsUrl}/UpdateContract/${id}`;
     delete contract.Id;
     return this.http.put<Contract>(url, contract);
+  }
+  deleteContract(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.contractsUrl}/DeleteContract/${id}`);
   }
 }

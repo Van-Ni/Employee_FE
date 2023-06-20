@@ -53,7 +53,7 @@ export class ModalPositionComponent implements OnInit, OnChanges {
     this.getDepartments();
     this.posForm = this.fb.group({
       name: ["", Validators.required],
-      description: ["", Validators.required],
+      description: [""],
     });
   }
   getContracts(): void {
@@ -86,8 +86,7 @@ export class ModalPositionComponent implements OnInit, OnChanges {
   onSave() {
     if (this.posForm.valid) {
       const formData = this.posForm.getRawValue();
-      formData.name = parseInt(formData.name);
-      formData.description = parseInt(formData.description);
+
       if (this.id == 0) {
         this.onSavePos.emit(formData);
       } else {

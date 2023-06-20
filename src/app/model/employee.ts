@@ -34,5 +34,5 @@ export class Employee {
     this.UserName = data.UserName;
     this.UserRole = data.UserRole;
   }
-  
+
 }

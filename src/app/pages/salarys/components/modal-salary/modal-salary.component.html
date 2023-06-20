@@ -1,0 +1,47 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Danh sách lương</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="salForm">
+          <div class="row">
+            <div class="col-6">
+              <mat-form-field appearance="fill">
+                <mat-label>Mã NV</mat-label>
+                <input matInput type="number" value="" formControlName="employee_id" />
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Lương cơ bản</mat-label>
+                <input matInput type="number" value="" formControlName="basicSalary" />
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Phụ cấp</mat-label>
+                <input matInput type="number" value="" formControlName="allowance" />
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Hệ số</mat-label>
+                <input matInput type="number" value="" formControlName="coefficient" />
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Lương theo giờ</mat-label>
+                <input matInput type="number" value="" formControlName="hourlyRate" />
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Đóng
+        </button>
+        <button type="button" class="btn btn-primary" [disabled]="!salForm.valid" (click)="onSave()">
+          Lưu
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

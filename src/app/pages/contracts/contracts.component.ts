@@ -52,6 +52,11 @@ export class ContractsComponent implements OnInit {
       this.setDataTable();
     });
   }
+  deleteCon(id: number): void {
+    this.contractService.deleteContract(id).subscribe((contracts) => {
+      this.getContracts();
+    });
+  }
   createOrUpdateModelOpen(id: number) {
     this.idModal = id;
   }
@@ -66,7 +71,7 @@ export class ContractsComponent implements OnInit {
       );
     } else {
       this.contractService
-        .createContract({ ...con, Id: +con.Type})
+        .createContract(con)
         .subscribe(
           (contract) => this.getContracts(),
           (error) => console.error(error)

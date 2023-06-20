@@ -1,0 +1,50 @@
+<!-- cau truc khi tao xong component -->
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- ... -->
+      <button mat-flat-button color="primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+      (click)="createOrUpdateModelOpen(0)"
+      >Thêm mới <i class="fa-solid fa-plus"></i></button>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+  <mat-card>
+      <!-- ... -->
+        <table id="myTable" class="table table-striped table-bordered" style="width:100%">
+          <thead>
+            <tr>
+              <th>Mã NV</th>
+              <th>Ngày nghỉ</th>
+              <th>Lý do</th>
+              <th>Cho phép</th>
+              <th>Loại nghỉ phép</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let leave of leaves; let i = index">
+            <td>{{leave.EmployeeId}}</td>
+            <td>{{leave.LeaveDate | date:'dd-MM-yyyy'}}</td>
+            <td>{{leave.Reason}}</td>
+            <td>{{leave.Approved}}</td>
+            <td>{{leave.LeaveType}}</td>
+            <td style="width: 20%;">
+              <button style="margin-right: 10px;" mat-flat-button color="primary"
+              (click)="createOrUpdateModelOpen(leave.Id)"
+              data-bs-toggle="modal" data-bs-target="#exampleModal"
+              ><i class="fa-solid fa-pen"></i></button>
+              <button mat-stroked-button color="warn" (click)="deleteLea(leave.Id)">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+  </mat-card>
+</div>
+
+<!-- Modal -->
+<app-modal-leave [id]="idModal" (onSaveLea)="onSaveLea($event)"></app-modal-leave>

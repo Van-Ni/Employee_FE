@@ -1,0 +1,43 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Danh sách thưởng phạt</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="rewForm">
+          <div class="row">
+            <div class="col-6">
+              <mat-form-field appearance="fill">
+                <mat-label>Mã NV</mat-label>
+                <input matInput type="number" value="" formControlName="employee_id" />
+              </mat-form-field>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Ngày kỷ luật</label>
+                <input type="date" class="form-control" id="exampleFormControlInput1" formControlName="transaction_date" />
+              </div>
+              <mat-form-field appearance="fill">
+                <mat-label>Tiền kỷ luật</mat-label>
+                <input matInput type="number" value="" formControlName="reward_amount" />
+              </mat-form-field>
+              <mat-form-field class="example-full-width" appearance="fill" >
+                <mat-label>Lý do</mat-label>
+                <input matInput formControlName="reason" />
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Đóng
+        </button>
+        <button type="button" class="btn btn-primary" [disabled]="!rewForm.valid" (click)="onSave()">
+          Lưu
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
