@@ -1,0 +1,50 @@
+<!-- cau truc khi tao xong component -->
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- ... -->
+      <button mat-flat-button color="primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+      (click)="createOrUpdateModelOpen(0)"
+      >Thêm mới <i class="fa-solid fa-plus"></i></button>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+  <mat-card>
+      <!-- ... -->
+        <table id="myTable" class="table table-striped table-bordered" style="width:100%">
+          <thead>
+            <tr>
+              <th>Mã NV</th>
+              <th>Lương cơ bản</th>
+              <th>Phụ cấp</th>
+              <th>Hệ số</th>
+              <th>Lương theo giờ</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let salary of salarys;">
+            <td>{{salary.EmployeeId}}</td>
+            <td>{{salary.BasicSalary}}</td>
+            <td>{{salary.Allowance}}</td>
+            <td>{{salary.Coefficient}}</td>
+            <td>{{salary.HourlyRate}}</td>
+            <td>
+              <button style="margin-right: 10px;" mat-flat-button color="primary"
+              (click)="createOrUpdateModelOpen(salary.Id)"
+              data-bs-toggle="modal" data-bs-target="#exampleModal"
+              ><i class="fa-solid fa-pen"></i></button>
+              <button mat-stroked-button color="warn" (click)="deleteSal(salary.Id)">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+  </mat-card>
+</div>
+
+<!-- Modal -->
+<app-modal-salary [id]="idModal" (onSaveSal)="onSaveSal($event)"></app-modal-salary>

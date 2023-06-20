@@ -48,6 +48,11 @@ export class PositionsComponent implements OnInit {
       this.setDataTable();
     })
   }
+  deletePos(id: number): void {
+    this.positionService.deletePosition(id).subscribe((positions) => {
+      this.getPositions();
+    });
+  }
   createOrUpdateModelOpen(id: number) {
     this.idModal = id;
   }
@@ -63,7 +68,7 @@ export class PositionsComponent implements OnInit {
         );
     } else {
       this.positionService
-        .createPosition({ ...pos, Id: +pos.Name})
+        .createPosition(pos)
         .subscribe(
           (position) => this.getPositions(),
           (error) => console.error(error)

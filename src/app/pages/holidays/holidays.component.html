@@ -1,0 +1,48 @@
+<!-- cau truc khi tao xong component -->
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- ... -->
+      <button mat-flat-button color="primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+      (click)="createOrUpdateModelOpen(0)"
+      >Thêm mới <i class="fa-solid fa-plus"></i></button>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+  <mat-card>
+      <!-- ... -->
+        <table id="myTable" class="table table-striped table-bordered" style="width:100%">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Ngày nghỉ lễ</th>
+              <th>Chú thích</th>
+              <th>Số ngày được nghỉ</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let holiday of holidays; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{holiday.HolidayDate | date:'dd-MM-yyyy'}}</td>
+            <td>{{holiday.Description}}</td>
+            <td>{{holiday.DayOff}}</td>
+            <td>
+              <button style="margin-right: 10px;" mat-flat-button color="primary"
+              (click)="createOrUpdateModelOpen(holiday.Id)"
+              data-bs-toggle="modal" data-bs-target="#exampleModal"
+              ><i class="fa-solid fa-pen"></i></button>
+              <button mat-stroked-button color="warn" (click)="deleteHol(holiday.Id)">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+  </mat-card>
+</div>
+
+<!-- Modal -->
+<app-modal-holiday [id]="idModal" (onSaveHol)="onSaveHol($event)"></app-modal-holiday>

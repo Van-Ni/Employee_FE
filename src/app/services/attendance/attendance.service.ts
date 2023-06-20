@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { REMOTE_API } from 'src/app/model/common';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AttendanceService {
   constructor(

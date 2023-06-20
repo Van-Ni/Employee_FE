@@ -12,12 +12,12 @@ declare var $: any; // Import thư viện jQuery
 export class EmployeesComponent implements OnInit {
   employees: Employee[];
   user = JSON.parse (localStorage.getItem("user"));
-  
+
   constructor(
     private employeeService: EmployeeService,
 
     private cd: ChangeDetectorRef
-    
+
   ) {
     console.log(this.user);
   }
@@ -52,13 +52,13 @@ export class EmployeesComponent implements OnInit {
       this.setDataTable();
     });
   }
+  createOrUpdateModelOpen(id: number) {
+    this.idModal = id;
+  }
   deleteEmp(id: number): void {
     this.employeeService.deleteEmployee(id).subscribe((employees) => {
       this.getEmployees();
     });
-  }
-  createOrUpdateModelOpen(id: number) {
-    this.idModal = id;
   }
   onSaveEmp(emp: Employee) {
     if (emp.Id) {

@@ -54,7 +54,11 @@ export class DepartmentsComponent implements OnInit {
   createOrUpdateModelOpen(id: number) {
     this.idModal = id;
   }
-
+  deleteDep(id: number): void {
+    this.departmentService.deleteDepartment(id).subscribe((departments) => {
+      this.getDepartments();
+    });
+  }
   onSaveDep(dep: Department) {
     if (dep.Id) {
       this.departmentService.updateDepartment(dep.Id, dep).subscribe(
@@ -65,7 +69,7 @@ export class DepartmentsComponent implements OnInit {
       );
     } else {
       this.departmentService
-        .createDepartment({ ...dep, Id: +dep.Name })
+        .createDepartment(dep)
         .subscribe(
           (department) => this.getDepartments(),
           (error) => console.error(error)

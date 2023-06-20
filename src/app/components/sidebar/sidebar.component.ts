@@ -12,6 +12,16 @@ export const ROUTES: RouteInfo[] = [
     { path: '/user-profile', title: 'Thông tin cá nhân',  icon:'ni-single-02 text-yellow', class: '' },
     {path: "/employee",title: 'Nhân viên',  icon:'ni-key-25 text-info', class: 'd-none'},
     { path: '/time-keeping', title: 'Chấm công',  icon:'ni-time-alarm text-info', class: '' },
+    {path: "/departments",title: 'Phòng ban',  icon:'ni-key-25 text-info', class: 'd-none'},
+    {path: "/positions",title: 'Chức vụ',  icon:'ni-key-25 text-info', class: 'd-none'},
+    {path: "/contracts",title: 'Hợp đồng',  icon:'ni-key-25 text-info', class: 'd-none'},
+    {path: "/attendances",title: 'Danh sách chấm công',  icon:'ni-key-25 text-info', class: 'd-none'},
+    {path: "/leaves",title: 'Danh sách nghỉ việc',  icon:'ni-key-25 text-info', class: 'd-none'},
+    {path: "/holidays",title: 'Ngày nghỉ lễ',  icon:'ni-key-25 text-info', class: 'd-none'},
+    {path: "/rewarddisciplines",title: 'Danh sách thưởng phạt',  icon:'ni-key-25 text-info', class: 'd-none'},
+    {path: "/salarys",title: 'Danh sách lương',  icon:'ni-key-25 text-info', class: 'd-none'},
+    {path: "/employeesalarys",title: 'Danh sách tính lương',  icon:'ni-key-25 text-info', class: 'd-none'},
+
     {path: "/salary",title: 'Xem bảng lương',  icon:'ni-key-25 text-info', class: ''},
 ];
 

@@ -28,10 +28,10 @@
             <td>{{department.description}}</td>
             <td style="width: 20%;">
               <button style="margin-right: 10px;" mat-flat-button color="primary"
-              (click)="createOrUpdateModelOpen(department.Id)"
+              (click)="createOrUpdateModelOpen(department.id)"
               data-bs-toggle="modal" data-bs-target="#exampleModal"
               ><i class="fa-solid fa-pen"></i></button>
-              <button *ngIf="user.id === department.Id" mat-stroked-button color="warn">
+              <button mat-stroked-button color="warn" (click)="deleteDep(department.id)">
                 <i class="fa-solid fa-trash"></i>
               </button>
             </td>
