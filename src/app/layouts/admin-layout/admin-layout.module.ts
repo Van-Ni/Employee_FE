@@ -27,6 +27,7 @@ import { ContractsComponent } from 'src/app/pages/contracts/contracts.component'
 import { ModalDepartmentComponent } from 'src/app/pages/departments/components/modal-department/modal-department.component';
 import { ModalPositionComponent } from 'src/app/pages/positions/components/modal-position/modal-position.component';
 import { ModalContractComponent } from 'src/app/pages/contracts/components/modal-contract/modal-contract.component';
+import { EmpSalaryComponent } from 'src/app/pages/emp-salary/emp-salary.component';
 
 @NgModule({
   imports: [
@@ -59,6 +60,7 @@ import { ModalContractComponent } from 'src/app/pages/contracts/components/modal
     ModalDepartmentComponent,
     ModalPositionComponent,
     ModalContractComponent,
+    EmpSalaryComponent,
   ],
 })
 

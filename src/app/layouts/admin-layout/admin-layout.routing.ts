@@ -8,6 +8,7 @@ import { AuthGuard } from "src/app/services/auth/auth-guard";
 import { DepartmentsComponent } from "src/app/pages/departments/departments.component";
 import { PositionsComponent } from "src/app/pages/positions/positions.component";
 import { ContractsComponent } from "src/app/pages/contracts/contracts.component";
+import { EmpSalaryComponent } from "src/app/pages/emp-salary/emp-salary.component";
 
 export const AdminLayoutRoutes: Routes = [
   {
@@ -21,6 +22,7 @@ export const AdminLayoutRoutes: Routes = [
       { path: "departments", component: DepartmentsComponent },
       { path: "positions", component: PositionsComponent},
       { path: "contracts", component: ContractsComponent},
+      { path: "emp-salary", component: EmpSalaryComponent},
     ]
   }
 ];
