@@ -1,0 +1,61 @@
+<!-- cau truc khi tao xong component -->
+
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- ... -->
+      <form [formGroup]="timeForm" style="padding: 0 16px;" >
+        <label for="month">Tháng:</label>
+        <input type="number" id="month" formControlName="month" name="month" style="margin-right: 16px;"/>
+    
+        <label for="year">Năm:</label>
+        <input type="number" id="year" formControlName="year"  name="year" style="margin-right: 16px;"/>
+    
+        <button class="btn btn-primary" [disabled]="!timeForm.valid" (click)="getEmployeeSalaries()">Xác nhận</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--7">
+  <mat-card>
+      
+      <!-- ... -->
+      <table id="myTable" class="table table-striped table-bordered" style="width:100%">
+        
+        <thead>
+          <tr>
+            <th data-orderable="false">
+              <input type="checkbox" name="websitecheck" (click) = "checkuncheckall()">
+            </th>
+            <th >Tên nhân viên</th>
+            <th>Tháng</th>
+            <th>Năm</th>
+            <th>Số ngày làm việc</th>
+            <th>Số ngày nghỉ</th>
+            <th>Số ngày nghỉ có công</th>
+            <th>Giờ làm thêm</th>
+            <th>Tổng lương</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let empSalary of empSalaries">
+            <td>
+              <input (click)="pushToArray($event)" type="checkbox" name="empSalaryCheck" [checked]="isChecked" value="{{empSalary.id}}">
+            </td>
+            <td>{{ empSalary.employee_name }}</td>
+            <td>{{ empSalary.month }}</td>
+            <td>{{ empSalary.year }}</td>
+            <td>{{ empSalary.totalWorkDays }}</td>
+            <td>{{ empSalary.totalHolidayDays }}</td>
+            <td>{{ empSalary.totalPaidLeaveDays }}</td>
+            <td>{{ empSalary.totalOverTimeHours }}</td>
+            <td>{{ empSalary.totalSalary }}</td>
+          </tr>
+        </tbody>
+        
+      </table>
+      <input type="submit" value="Tính lương" class="btn btn-primary" (click)="calcSalary()">
+    </mat-card>
+  
+</div>
