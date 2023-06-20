@@ -28,4 +28,7 @@ export class PositionService {
     delete position.Id;
     return this.http.put<Position>(url, position);
   }
+  deletePosition(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.positionsUrl}/DeletePosition/${id}`);
+  }
 }

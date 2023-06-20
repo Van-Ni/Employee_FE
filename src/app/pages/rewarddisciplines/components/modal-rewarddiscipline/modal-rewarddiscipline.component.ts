@@ -41,8 +41,8 @@ export class ModalRewarddisciplineComponent implements OnInit, OnChanges {
     this.getEmployees();
     this.rewForm = this.fb.group({
       employee_id: ["", Validators.required],
-      transactiondate: ["", Validators.required],
-      rewardamount: ["", Validators.required],
+      transaction_date: ["", Validators.required],
+      reward_amount: ["", Validators.required],
       reason: ["", Validators.required],
     });
   }
@@ -79,8 +79,8 @@ export class ModalRewarddisciplineComponent implements OnInit, OnChanges {
     console.log(rew);
     this.rewarddiscipline = rew;
     this.rewForm.get("employee_id").setValue(rew.EmployeeId);
-    this.rewForm.get("transactiondate").setValue(rew.TransactionDate);
-    this.rewForm.get("rewardamount").setValue(rew.RewardAmount);
+    this.rewForm.get("transaction_date").setValue(rew.TransactionDate);
+    this.rewForm.get("reward_amount").setValue(rew.RewardAmount);
     this.rewForm.get("reason").setValue(rew.Reason);
   }
 }

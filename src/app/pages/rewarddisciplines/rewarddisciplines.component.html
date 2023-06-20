@@ -30,10 +30,10 @@
             <td>{{rewarddiscipline.Reason}}</td>
             <td>
               <button style="margin-right: 10px;" mat-flat-button color="primary"
-              (click)="createOrUpdateModelOpen(rewarddiscipline.id)"
+              (click)="createOrUpdateModelOpen(rewarddiscipline.Id)"
               data-bs-toggle="modal" data-bs-target="#exampleModal"
               ><i class="fa-solid fa-pen"></i></button>
-              <button mat-stroked-button color="warn">
+              <button mat-stroked-button color="warn" (click)="deleteRew(rewarddiscipline.Id)">
                 <i class="fa-solid fa-trash"></i>
             </button>
             </td>

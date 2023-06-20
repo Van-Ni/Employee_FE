@@ -49,4 +49,37 @@ export class AttendancesComponent implements OnInit {
       this.setDataTable();
     });
   }
+
+  getWorkingTime(checkInTime: string, checkOutTime: string): string {
+    if (checkInTime && checkOutTime) {
+      const startTime = new Date(`2000-01-01T${checkInTime}`);
+      const endTime = new Date(`2000-01-01T${checkOutTime}`);
+      const diff = endTime.getTime() - startTime.getTime();
+
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      return `${hours}:${minutes}:${seconds}`;
+    }
+    return '0';
+  }
+
+  getStatus(status: number): string {
+    switch (status) {
+      case 0:
+        return 'Đi sớm';
+      case 1:
+        return 'Đi muộn';
+      default:
+        return '';
+    }
+  }
+
+  formatTime(time: string | null): string {
+    if (time) {
+      return time.slice(0, 8); // Cắt chuỗi từ vị trí 0 đến vị trí 7 để lấy "HH:mm:ss"
+    }
+    return '';
+  }
 }

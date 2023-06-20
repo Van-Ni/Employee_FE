@@ -27,6 +27,9 @@ constructor(
   updateHoliday(id: number, holiday: Holiday): Observable<Holiday> {
     const url = `${this.holidayUrl}/UpdateHoliday/${id}`;
     delete holiday.Id;
-    return this.http.put<Holiday>(url, Holiday);
+    return this.http.put<Holiday>(url, holiday);
+  }
+  deleteHoliday(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.holidayUrl}/DeleteHoliday/${id}`);
   }
 }

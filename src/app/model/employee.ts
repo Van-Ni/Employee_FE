@@ -14,6 +14,7 @@ export class Employee {
   ContractId: number;
   UserId?: number;
   UserName?: string;
+  UserRole?: string;
 
   constructor(data: any) {
     this.Id = data.Id;
@@ -31,6 +32,7 @@ export class Employee {
     this.ContractId = data.ContractId;
     this.UserId = data.UserId;
     this.UserName = data.UserName;
+    this.UserRole = data.UserRole;
   }
-  
+
 }

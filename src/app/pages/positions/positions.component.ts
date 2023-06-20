@@ -48,6 +48,11 @@ export class PositionsComponent implements OnInit {
       this.setDataTable();
     })
   }
+  deletePos(id: number): void {
+    this.positionService.deletePosition(id).subscribe((positions) => {
+      this.getPositions();
+    });
+  }
   createOrUpdateModelOpen(id: number) {
     this.idModal = id;
   }

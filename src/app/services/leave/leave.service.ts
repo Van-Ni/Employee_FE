@@ -26,11 +26,14 @@ export class LeaveService {
     return this.http.get<Leave>(`${this.leaveUrl}/GetLeave/${id}`);
   }
   createLeave(leave: Leave): Observable<Leave> {
-    return this.http.post<Leave>(`${this.leaveUrl}/Create`, leave);
+    return this.http.post<Leave>(`${this.leaveUrl}/CreateLeave`, leave);
   }
   updateLeave(id: number, leave: Leave): Observable<Leave> {
     const url = `${this.leaveUrl}/UpdateLeave/${id}`;
     delete leave.Id;
     return this.http.put<Leave>(url, leave);
+  }
+  deleteLeave(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.leaveUrl}/DeleteLeave/${id}`);
   }
 }

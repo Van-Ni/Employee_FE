@@ -40,10 +40,11 @@ export class ModalSalaryComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.getEmployees();
     this.salForm = this.fb.group({
-      basicsalary: ["", Validators.required],
+      employee_id: ["", Validators.required],
+      basicSalary: ["", Validators.required],
       allowance: ["", Validators.required],
       coefficient: ["", Validators.required],
-      hourlyrate: ["", Validators.required],
+      hourlyRate: ["", Validators.required],
     });
   }
   getEmployees(): void {
@@ -80,9 +81,10 @@ export class ModalSalaryComponent implements OnInit, OnChanges {
   setForm(sal: Salary) {
     console.log(sal);
     this.salary = sal;
-    this.salForm.get("basicsalary").setValue(sal.BasicSalary);
+    this.salForm.get("employee_id").setValue(sal.EmployeeId);
+    this.salForm.get("basicSalary").setValue(sal.BasicSalary);
     this.salForm.get("allowance").setValue(sal.Allowance);
     this.salForm.get("coefficient").setValue(sal.Coefficient);
-    this.salForm.get("hourlyrate").setValue(sal.HourlyRate);
+    this.salForm.get("hourlyRate").setValue(sal.HourlyRate);
   }
 }

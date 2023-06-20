@@ -28,4 +28,7 @@ export class SalaryService {
     delete salary.Id;
     return this.http.put<Salary>(url, salary);
   }
+  deleteSalary(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.salarysUrl}/DeleteSalary/${id}`);
+  }
 }

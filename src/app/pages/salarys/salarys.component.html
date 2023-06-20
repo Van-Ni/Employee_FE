@@ -32,10 +32,10 @@
             <td>{{salary.HourlyRate}}</td>
             <td>
               <button style="margin-right: 10px;" mat-flat-button color="primary"
-              (click)="createOrUpdateModelOpen(salary.id)"
+              (click)="createOrUpdateModelOpen(salary.Id)"
               data-bs-toggle="modal" data-bs-target="#exampleModal"
               ><i class="fa-solid fa-pen"></i></button>
-              <button mat-stroked-button color="warn">
+              <button mat-stroked-button color="warn" (click)="deleteSal(salary.Id)">
                 <i class="fa-solid fa-trash"></i>
             </button>
             </td>

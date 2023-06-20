@@ -16,6 +16,7 @@
               <th>Ngày</th>
               <th>Thời gian vào</th>
               <th>Thời gian ra</th>
+              <th>Thời gian làm việc</th>
               <th>Tăng ca</th>
               <th>Trạng thái</th>
             </tr>
@@ -24,10 +25,11 @@
             <tr *ngFor="let attendance of attendances">
               <td>{{ attendance.EmployeeId }}</td>
               <td>{{ attendance.Date | date:'dd-MM-yyyy' }}</td>
-              <td>{{ attendance.CheckInTime }}</td>
-              <td>{{ attendance.CheckOutTime }}</td>
+              <td>{{ formatTime(attendance.CheckInTime) }}</td>
+              <td>{{ formatTime(attendance.CheckOutTime) }}</td>
+              <td>{{ getWorkingTime(attendance.CheckInTime, attendance.CheckOutTime) }}</td>
               <td>{{ attendance.Overtime }}</td>
-              <td>{{ attendance.Status }}</td>
+              <td>{{ getStatus(attendance.Status) }}</td>
             </tr>
           </tbody>
         </table>

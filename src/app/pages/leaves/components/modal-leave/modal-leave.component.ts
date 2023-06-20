@@ -42,10 +42,10 @@ export class ModalLeaveComponent implements OnInit, OnChanges {
     this.getEmployees();
     this.leaForm = this.fb.group({
       employee_id: ["", Validators.required],
-      leavedate: ["", Validators.required],
+      leave_date: ["", Validators.required],
       reason: ["", Validators.required],
       approved: ["", Validators.required],
-      leavetype: ["", Validators.required],
+      leave_type: ["", Validators.required],
     });
   }
   getEmployees(): void {
@@ -68,7 +68,7 @@ export class ModalLeaveComponent implements OnInit, OnChanges {
   onSave() {
     if (this.leaForm.valid) {
       const formData = this.leaForm.getRawValue();
-
+      formData.approved = parseInt(formData.approved);
       if (this.id == 0) {
         this.onSaveLea.emit(formData);
       } else {
@@ -85,10 +85,10 @@ export class ModalLeaveComponent implements OnInit, OnChanges {
     this.leave = lea;
     this.leaForm.get("employee_id").setValue(lea.EmployeeId);
     this.leaForm
-      .get("leavedate")
+      .get("leave_date")
       .setValue(new Date(lea.LeaveDate).toISOString().substring(0, 10));
     this.leaForm.get("reason").setValue(lea.Reason);
-    this.leaForm.get("approved").setValue(lea.Approved ? "1" : "0");
-    this.leaForm.get("leavetype").setValue(lea.LeaveType);
+    this.leaForm.get("approved").setValue(lea.Approved ? "0" : "1");
+    this.leaForm.get("leave_type").setValue(lea.LeaveType);
   }
 }

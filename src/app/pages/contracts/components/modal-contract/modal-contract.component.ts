@@ -53,8 +53,9 @@ export class ModalContractComponent implements OnInit, OnChanges {
     this.getPositions();
     this.conForm = this.fb.group({
       type: ["", Validators.required],
-      startday: ["", Validators.required],
-      endday: ["", Validators.required],
+      startDate: ["", Validators.required],
+      endDate: ["", Validators.required],
+      note: [""],
     });
   }
   getEmployees(): void {
@@ -103,7 +104,12 @@ export class ModalContractComponent implements OnInit, OnChanges {
     console.log(con);
     this.contract = con;
     this.conForm.get("type").setValue(con.Type);
-    this.conForm.get("startday").setValue(con.StartDate);
-    this.conForm.get("endday").setValue(con.EndDate);
+    this.conForm
+      .get("startDate")
+      .setValue(new Date(con.StartDate).toISOString().substring(0, 10));
+    this.conForm
+      .get("endDate")
+      .setValue(new Date(con.EndDate).toISOString().substring(0, 10));
+    this.conForm.get("note").setValue(con.Note);
   }
 }

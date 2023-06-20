@@ -52,6 +52,11 @@ export class ContractsComponent implements OnInit {
       this.setDataTable();
     });
   }
+  deleteCon(id: number): void {
+    this.contractService.deleteContract(id).subscribe((contracts) => {
+      this.getContracts();
+    });
+  }
   createOrUpdateModelOpen(id: number) {
     this.idModal = id;
   }

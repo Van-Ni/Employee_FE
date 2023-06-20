@@ -53,7 +53,7 @@ export class ModalPositionComponent implements OnInit, OnChanges {
     this.getDepartments();
     this.posForm = this.fb.group({
       name: ["", Validators.required],
-      description: ["", Validators.required],
+      description: [""],
     });
   }
   getContracts(): void {

@@ -11,8 +11,12 @@
           <div class="row">
             <div class="col-6">
               <mat-form-field appearance="fill">
+                <mat-label>Mã NV</mat-label>
+                <input matInput type="number" value="" formControlName="employee_id" />
+              </mat-form-field>
+              <mat-form-field appearance="fill">
                 <mat-label>Lương cơ bản</mat-label>
-                <input matInput type="number" value="" formControlName="basicsalary" />
+                <input matInput type="number" value="" formControlName="basicSalary" />
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Phụ cấp</mat-label>
@@ -24,7 +28,7 @@
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Lương theo giờ</mat-label>
-                <input matInput type="number" value="" formControlName="hourlyrate" />
+                <input matInput type="number" value="" formControlName="hourlyRate" />
               </mat-form-field>
             </div>
           </div>

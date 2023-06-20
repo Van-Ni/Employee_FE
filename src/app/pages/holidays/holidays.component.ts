@@ -48,6 +48,11 @@ export class HolidaysComponent implements OnInit {
       this.setDataTable();
     });
   }
+  deleteHol(id: number): void {
+    this.holidayService.deleteHoliday(id).subscribe((holidays) => {
+      this.getHolidays();
+    });
+  }
   createOrUpdateModelOpen(id: number) {
     this.idModal = id;
   }

@@ -29,4 +29,7 @@ export class ContractService {
     delete contract.Id;
     return this.http.put<Contract>(url, contract);
   }
+  deleteContract(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.contractsUrl}/DeleteContract/${id}`);
+  }
 }

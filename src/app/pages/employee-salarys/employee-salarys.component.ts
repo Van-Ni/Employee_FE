@@ -14,6 +14,7 @@ export class EmployeeSalarysComponent implements OnInit {
 
   public idModal: number = 0;
   ngOnInit() {
+    // this.getEmployeeSalary()
   }
 
   setDataTable(): void {

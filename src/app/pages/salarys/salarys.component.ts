@@ -48,6 +48,11 @@ export class SalarysComponent implements OnInit {
       this.setDataTable();
     });
   }
+  deleteSal(id: number): void {
+    this.salaryService.deleteSalary(id).subscribe((salarys) => {
+      this.getSalarys();
+    });
+  }
   createOrUpdateModelOpen(id: number) {
     this.idModal = id;
   }

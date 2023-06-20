@@ -28,4 +28,7 @@ export class RewarddisciplineService {
     delete rewarddiscipline.Id;
     return this.http.put<Rewarddiscipline>(url, rewarddiscipline);
   }
+  deleteRewarddiscipline(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.rewarddisciplineUrl}/Delete/${id}`);
+  }
 }

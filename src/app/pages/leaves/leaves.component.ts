@@ -48,6 +48,11 @@ export class LeavesComponent implements OnInit {
       this.setDataTable();
     });
   }
+  deleteLea(id: number): void {
+    this.leaveService.deleteLeave(id).subscribe((leaves) => {
+      this.getLeaves();
+    });
+  }
   createOrUpdateModelOpen(id: number) {
     this.idModal = id;
   }

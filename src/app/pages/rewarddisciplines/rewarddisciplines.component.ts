@@ -48,6 +48,11 @@ export class RewarddisciplinesComponent implements OnInit {
       this.setDataTable();
     });
   }
+  deleteRew(id: number): void {
+    this.rewarddisciplineService.deleteRewarddiscipline(id).subscribe((rewarddisciplines) => {
+      this.getRewarddisciplines();
+    });
+  }
   createOrUpdateModelOpen(id: number) {
     this.idModal = id;
   }

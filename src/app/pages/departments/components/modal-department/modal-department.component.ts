@@ -52,7 +52,7 @@ export class ModalDepartmentComponent implements OnInit, OnChanges {
     this.getPositions();
     this.depForm = this.fb.group({
       name: ["", Validators.required],
-      description: ["", Validators.required],
+      description: [""],
 
     });
   }

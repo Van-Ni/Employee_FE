@@ -36,9 +36,9 @@ export class ModalHolidayComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.holForm = this.fb.group({
-      holidaydate: ["", Validators.required],
+      holiday_date: ["", Validators.required],
       description: ["", Validators.required],
-      dayoff: ["", Validators.required],
+      days_off: ["", Validators.required]
     });
   }
   ngOnChanges(changes: SimpleChanges) {
@@ -69,8 +69,10 @@ export class ModalHolidayComponent implements OnInit, OnChanges {
   setForm(hol: Holiday) {
     console.log(hol);
     this.holiday = hol;
-    this.holForm.get("holidaydate").setValue(hol.HolidayDate);
+    this.holForm
+      .get("holiday_date")
+      .setValue(new Date(hol.HolidayDate).toISOString().substring(0, 10));
     this.holForm.get("description").setValue(hol.Description);
-    this.holForm.get("dayoff").setValue(hol.DayOff);
+    this.holForm.get("days_off").setValue(hol.DayOff);
   }
 }

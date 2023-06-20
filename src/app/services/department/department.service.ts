@@ -10,7 +10,6 @@ import { Department } from 'src/app/model/department';
   providedIn: 'root'
 })
 export class DepartmentService {
-
   private departmentsUrl = `${REMOTE_API}/Department`;
 
   constructor(
@@ -32,8 +31,7 @@ export class DepartmentService {
     delete department.Id;
     return this.http.put<Department>(url, department);
   }
-  delete(id: number): Observable<any> {
-    const url = `${this.departmentsUrl}/DeleteDepartment/${id}`;
-    return this.http.delete(url);
+  deleteDepartment(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.departmentsUrl}/DeleteDepartment/${id}`);
   }
 }

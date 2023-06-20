@@ -25,17 +25,17 @@
           </thead>
           <tbody>
           <tr *ngFor="let contract of contracts;">
-            <td>{{ contract.id}}</td>
+            <td>{{ contract.id }}</td>
             <td>{{ contract.type }}</td>
-            <td>{{ contract.startday}}</td>
-            <td>{{ contract.endday}}</td>
+            <td>{{ contract.startDate | date:'dd-MM-yyyy'}}</td>
+            <td>{{ contract.endDate | date:'dd-MM-yyyy'}}</td>
             <td>{{ contract.note }}</td>
             <td style="width: 20%;">
               <button style="margin-right: 10px;" mat-flat-button color="primary"
               (click)="createOrUpdateModelOpen(contract.id)"
               data-bs-toggle="modal" data-bs-target="#exampleModal"
               ><i class="fa-solid fa-pen"></i></button>
-              <button mat-stroked-button color="warn">
+              <button mat-stroked-button color="warn" (click)="deleteCon(contract.id)">
                 <i class="fa-solid fa-trash"></i>
               </button>
             </td>

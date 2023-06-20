@@ -12,26 +12,26 @@
             <div class="col-6">
               <mat-form-field appearance="fill">
                 <mat-label>Mã NV</mat-label>
-                <input matInput type="number" value="" formControlName="EmployeeId" />
+                <input matInput type="number" value="" formControlName="employee_id" />
               </mat-form-field>
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Ngày nghỉ</label>
-                <input type="date" class="form-control" id="exampleFormControlInput1" formControlName="LeaveDate" />
+                <input type="date" class="form-control" id="exampleFormControlInput1" formControlName="leave_date" />
               </div>
               <mat-form-field class="example-full-width" appearance="fill" >
                 <mat-label>Lý do</mat-label>
-                <input matInput formControlName="Reason" />
+                <input matInput formControlName="reason" />
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Cho phép</mat-label>
-                <select matNativeControl required formControlName="Approved">
-                  <option value="0" selected>Đồng ý</option>
-                  <option value="1">Không đồng ý</option>
+                <select matNativeControl required formControlName="approved">
+                  <option value="1" selected>Đồng ý</option>
+                  <option value="0">Không đồng ý</option>
                 </select>
               </mat-form-field>
-              <mat-form-field appearance="fill">
+              <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Loại nghỉ phép</mat-label>
-                <input matInput value="" formControlName="LeaveType" />
+                <input matInput value="" formControlName="leave_type" />
               </mat-form-field>
             </div>
           </div>

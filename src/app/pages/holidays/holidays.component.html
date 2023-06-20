@@ -30,10 +30,10 @@
             <td>{{holiday.DayOff}}</td>
             <td>
               <button style="margin-right: 10px;" mat-flat-button color="primary"
-              (click)="createOrUpdateModelOpen(holiday.id)"
+              (click)="createOrUpdateModelOpen(holiday.Id)"
               data-bs-toggle="modal" data-bs-target="#exampleModal"
               ><i class="fa-solid fa-pen"></i></button>
-              <button mat-stroked-button color="warn">
+              <button mat-stroked-button color="warn" (click)="deleteHol(holiday.Id)">
                 <i class="fa-solid fa-trash"></i>
             </button>
             </td>
