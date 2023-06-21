@@ -41,16 +41,16 @@
         <tbody>
           <tr *ngFor="let empSalary of empSalaries">
             <td>
-              <input (click)="pushToArray($event)" type="checkbox" name="empSalaryCheck" [checked]="isChecked" value="{{empSalary.id}}">
+              <input (click)="pushToArray($event)" type="checkbox" name="empSalaryCheck" [checked]="isChecked" value="{{empSalary.Id}}">
             </td>
-            <td>{{ empSalary.employee_name }}</td>
-            <td>{{ empSalary.month }}</td>
-            <td>{{ empSalary.year }}</td>
+            <td>{{ empSalary.EmployeeName }}</td>
+            <td>{{ empSalary.Month }}</td>
+            <td>{{ empSalary.Year }}</td>
             <td>{{ empSalary.totalWorkDays }}</td>
-            <td>{{ empSalary.totalHolidayDays }}</td>
-            <td>{{ empSalary.totalPaidLeaveDays }}</td>
-            <td>{{ empSalary.totalOverTimeHours }}</td>
-            <td>{{ empSalary.totalSalary }}</td>
+            <td>{{ empSalary.TotalHolidayDays }}</td>
+            <td>{{ empSalary.TotalPaidLeaveDays }}</td>
+            <td>{{ empSalary.TotalOverTimeHours }}</td>
+            <td>{{ empSalary.TotalSalary }}</td>
           </tr>
         </tbody>
         

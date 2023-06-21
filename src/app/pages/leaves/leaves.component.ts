@@ -74,4 +74,9 @@ export class LeavesComponent implements OnInit {
     }
     $("#exampleModal").modal("hide");
   }
+  handleApproved(event){
+    this.leaveService.approveLeave(event.target.value).subscribe((res) => {
+      this.getLeaves();
+    });
+  }
 }

@@ -23,7 +23,10 @@ export class EmpSalaryService {
     return this.http.get<EmpSalary[]>(`${REMOTE_API}/GetAllEmployeeSalaries`);
   }
 
-  calculateSalary(emps: EmpSalary[]): Observable<EmpSalary[]> {
-    return this.http.post<EmpSalary[]>(`${REMOTE_API}/Payroll/Calculate`, emps);
+  calculateSalary(params: any): Observable<any> {
+    return this.http.post<any>(`${REMOTE_API}/Payroll/Calculate`, params);
+  }
+  getEmployeesByMonthYear(month: number, year: number, ): Observable<EmpSalary[]> {
+    return this.http.get<EmpSalary[]>(`${REMOTE_API}/EmpSalary?month=${month}&year=${year}`);
   }
 }

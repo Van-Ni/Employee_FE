@@ -36,4 +36,8 @@ export class LeaveService {
   deleteLeave(id: number): Observable<any> {
     return this.http.delete<any>(`${this.leaveUrl}/DeleteLeave/${id}`);
   }
+  approveLeave(id: number): Observable<any> {
+    const url = `${this.leaveUrl}/ApproveLeave/${id}`;
+    return this.http.put<any>(url, null);
+  }
 }

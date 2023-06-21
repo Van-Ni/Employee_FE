@@ -10,7 +10,7 @@ import { EmployeeSalary } from 'src/app/model/employee-salary';
 })
 export class EmployeeSalaryService {
 
-  private salaryUrl = `${REMOTE_API}`;
+  private salaryUrl = `${REMOTE_API}/EmpSalary`;
 
   constructor(
     private http: HttpClient
@@ -19,5 +19,5 @@ export class EmployeeSalaryService {
   // getSalary(): Observable<EmployeeSalary[]> {
   //   return this.http.get<EmployeeSalary[]>(`${this.salaryUrl}/GetSalary`);
   // }
-
+  
 }
