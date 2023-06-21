@@ -4,6 +4,7 @@ export class Rewarddiscipline {
   RewardAmount: number;
   Reason: string;
   EmployeeId: number;
+  EmployeeName: number;
 
   constructor(data: any) {
     this.Id = data.Id;
@@ -11,5 +12,6 @@ export class Rewarddiscipline {
     this.RewardAmount = data.RewardAmount;
     this.Reason = data.Reason;
     this.EmployeeId = data.EmployeeId;
+    this.EmployeeName = data.EmployeeName;
   }
 }

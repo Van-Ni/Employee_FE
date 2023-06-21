@@ -5,6 +5,7 @@ export class Leave {
   Approved: number;
   LeaveType: string;
   EmployeeId: number;
+  EmployeeName: string;
 
   constructor(data: any) {
     this.Id = data.Id;
@@ -13,5 +14,6 @@ export class Leave {
     this.Approved = data.Approved;
     this.LeaveType = data.LeaveType;
     this.EmployeeId = data.EmployeeId;
+    this.EmployeeName = data.EmployeeName;
   }
 }

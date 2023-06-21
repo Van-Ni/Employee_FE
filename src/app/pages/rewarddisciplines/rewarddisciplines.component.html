@@ -15,7 +15,7 @@
         <table id="myTable" class="table table-striped table-bordered" style="width:100%">
           <thead>
             <tr>
-              <th>Mã NV</th>
+              <th>Nhân viên</th>
               <th>Ngày kỷ luật</th>
               <th>Tiền kỷ luật</th>
               <th>Lý do</th>
@@ -24,7 +24,7 @@
           </thead>
           <tbody>
           <tr *ngFor="let rewarddiscipline of rewarddisciplines;">
-            <td>{{rewarddiscipline.EmployeeId}}</td>
+            <td>{{rewarddiscipline.EmployeeName}}</td>
             <td>{{rewarddiscipline.TransactionDate}}</td>
             <td>{{rewarddiscipline.RewardAmount}}</td>
             <td>{{rewarddiscipline.Reason}}</td>
