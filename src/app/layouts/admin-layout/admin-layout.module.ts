@@ -38,6 +38,7 @@ import { ModalHolidayComponent } from 'src/app/pages/holidays/components/modal-h
 import { ModalLeaveComponent } from 'src/app/pages/leaves/components/modal-leave/modal-leave.component';
 import { ModalRewarddisciplineComponent } from 'src/app/pages/rewarddisciplines/components/modal-rewarddiscipline/modal-rewarddiscipline.component';
 import { ModalSalaryComponent } from 'src/app/pages/salarys/components/modal-salary/modal-salary.component';
+import { ListEmpSalaryComponent } from 'src/app/pages/list-emp-salary/list-emp-salary.component';
 
 @NgModule({
   imports: [
@@ -81,6 +82,7 @@ import { ModalSalaryComponent } from 'src/app/pages/salarys/components/modal-sal
     ModalLeaveComponent,
     ModalRewarddisciplineComponent,
     ModalSalaryComponent,
+    ListEmpSalaryComponent
   ],
 })
 

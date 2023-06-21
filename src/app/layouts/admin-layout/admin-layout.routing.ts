@@ -15,7 +15,7 @@ import { EmployeeSalarysComponent } from "src/app/pages/employee-salarys/employe
 import { HolidaysComponent } from "src/app/pages/holidays/holidays.component";
 import { RewarddisciplinesComponent } from "src/app/pages/rewarddisciplines/rewarddisciplines.component";
 import { SalarysComponent } from "src/app/pages/salarys/salarys.component";
-
+import { ListEmpSalaryComponent } from "src/app/pages/list-emp-salary/list-emp-salary.component";
 export const AdminLayoutRoutes: Routes = [
   {
     path: "",
@@ -35,7 +35,7 @@ export const AdminLayoutRoutes: Routes = [
       { path: "holidays", component: HolidaysComponent},
       { path: "rewarddisciplines", component: RewarddisciplinesComponent},
       { path: "salarys", component: SalarysComponent},
-
+      { path: "listempsalary", component: ListEmpSalaryComponent}
     ]
   }
 ];
