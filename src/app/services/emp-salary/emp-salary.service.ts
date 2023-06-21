@@ -26,4 +26,8 @@ export class EmpSalaryService {
   calculateSalary(emps: EmpSalary[]): Observable<EmpSalary[]> {
     return this.http.post<EmpSalary[]>(`${REMOTE_API}/Payroll/Calculate`, emps);
   }
+
+  getSalary(id: number): Observable<EmpSalary> {
+    return this.http.get<EmpSalary>(`${REMOTE_API}/GetSalary/{id}`);
+  }
 }

@@ -24,9 +24,9 @@
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Cho phép</mat-label>
-                <select matNativeControl required formControlName="approved">
-                  <option value="1" selected>Đồng ý</option>
-                  <option value="0">Không đồng ý</option>
+                <select matNativeControl required formControlName="approved" *ngIf="user.role_name.includes('Nhân viên')" disabled >
+                  <option value="1">Đồng ý</option>
+                  <option value="0" selected>Không đồng ý</option>
                 </select>
               </mat-form-field>
               <mat-form-field class="example-full-width" appearance="fill">
