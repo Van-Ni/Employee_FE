@@ -39,6 +39,7 @@ import { ModalLeaveComponent } from 'src/app/pages/leaves/components/modal-leave
 import { ModalRewarddisciplineComponent } from 'src/app/pages/rewarddisciplines/components/modal-rewarddiscipline/modal-rewarddiscipline.component';
 import { ModalSalaryComponent } from 'src/app/pages/salarys/components/modal-salary/modal-salary.component';
 import { ListEmpSalaryComponent } from 'src/app/pages/list-emp-salary/list-emp-salary.component';
+import { TableSalaryComponent } from 'src/app/pages/table-salary/table-salary.component';
 
 @NgModule({
   imports: [
@@ -82,7 +83,8 @@ import { ListEmpSalaryComponent } from 'src/app/pages/list-emp-salary/list-emp-s
     ModalLeaveComponent,
     ModalRewarddisciplineComponent,
     ModalSalaryComponent,
-    ListEmpSalaryComponent
+    ListEmpSalaryComponent,
+    TableSalaryComponent
   ],
 })
 
