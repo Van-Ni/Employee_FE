@@ -22,7 +22,7 @@ export const ROUTES: RouteInfo[] = [
     {path: "/salarys",title: 'Danh sách lương',  icon:'ni-key-25 text-info', class: 'd-none'},
     {path: "/employeesalarys",title: 'Danh sách tính lương',  icon:'ni-key-25 text-info', class: 'd-none'},
 
-    {path: "/salary",title: 'Xem bảng lương',  icon:'ni-key-25 text-info', class: ''},
+    {path: "/tableempsalary",title: 'Xem bảng lương',  icon:'ni-key-25 text-info', class: ''},
     {path: "/listempsalary",title: 'Danh sách tính lương',  icon:'ni-key-25 text-info', class: 'd-none'},
 
 ];

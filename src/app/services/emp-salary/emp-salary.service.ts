@@ -29,4 +29,8 @@ export class EmpSalaryService {
   getEmployeesByMonthYear(month: number, year: number, ): Observable<EmpSalary[]> {
     return this.http.get<EmpSalary[]>(`${REMOTE_API}/EmpSalary?month=${month}&year=${year}`);
   }
+
+  getSalary(id: number): Observable<EmpSalary> {
+    return this.http.get<EmpSalary>(`${REMOTE_API}/GetSalary/{id}`);
+  }
 }

@@ -30,6 +30,7 @@ export class ModalLeaveComponent implements OnInit, OnChanges {
   leave: Leave;
   leaForm: FormGroup;
   employees: Employee[];
+  user = JSON.parse (localStorage.getItem("user"));
   constructor(
     private fb: FormBuilder,
     private employeeService: EmployeeService,
